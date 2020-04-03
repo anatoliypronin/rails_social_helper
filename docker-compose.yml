@@ -5,7 +5,7 @@ services:
       build: .
       image: rails_social_helper/web:latest
       container_name: rails_social_helper-web
-  
+      command: bash -c "puma"
       ports:
          - 8080:8080
       volumes:
