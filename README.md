@@ -1,4 +1,24 @@
-# rails_social_helper
-Сервис "СоцХелпер"
-Данный сервис предназначен для размещения информации о социальных проблемах, с которыми сталкиваются жители российских городов. Соцхелпер позволяет выявить наиболее проблемные зоны и довести информацию до организаций уполномоченных на решение  поставленных задачь. Также данный сервис предусматривает возможность осуществления контроля за исполнением задачь, взятых на исполнение соответствующими службами.
-[Документация по проекту](https://drive.google.com/open?id=1Rm1nRNiidFe9EfCy1eYZK8JnwYGfjXeE)
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
