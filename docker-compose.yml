@@ -3,8 +3,9 @@ version: '3'
 services:
   web:
     build: .
-    image: social_helper/web
+    image: social_helper/web:latest
     container_name: social_helper-web
+    command: bash -c "puma"
     ports:
       - 8080:8080
     volumes:
