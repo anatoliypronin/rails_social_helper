@@ -11,6 +11,21 @@ class CityTest < ActiveSupport::TestCase
     assert_not city.save
   end
 
+  test 'Should not create city with incorrent name format(left spaces)' do
+    city = build :city, name: '     city'
+    assert_not city.save
+  end
+
+  test 'Should not create city with incorrent name format(between words spaces)' do
+    city = build :city, name: 'city       city'
+    assert_not city.save
+  end
+
+  test 'Should not create city with incorrent name format(right spaces)' do
+    city = build :city, name: 'city         '
+    assert_not city.save
+  end
+
   test 'Should not create city with short name' do
     city = build :city, name: 'q'
     assert_not city.save
