@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 2020_04_07_192324) do
     t.string "email"
     t.string "password_digest"
     t.string "role"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.string "district"
+    t.string "adress"
+    t.string "email_registration"
+    t.string "email_notification"
+    t.string "password_digest"
+    t.string "state"
+    t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
