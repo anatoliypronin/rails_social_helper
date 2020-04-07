@@ -47,7 +47,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'Should not create user without phone' do
-    user = build :user, phone: 'qwerty'
+    user = build :user, phone: nil
     assert_not user.save
   end
 
