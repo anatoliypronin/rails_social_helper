@@ -52,12 +52,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'Should not create user with invalid phone format' do
-    user = build :user, phone: '+1234567891'
+    user = build :user, phone: '+12345678911'
     assert_not user.save
   end
 
   test 'Should not create user with phone length != 11' do
-    user = build :user, phone: '+1234567891'
+    user = build :user, phone: '+12345678911'
     assert_not user.save
   end
 
