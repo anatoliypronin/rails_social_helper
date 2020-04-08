@@ -23,7 +23,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'valid_email2'
-gem 'factory_bot_rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
