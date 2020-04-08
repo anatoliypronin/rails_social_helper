@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_155820) do
+ActiveRecord::Schema.define(version: 2020_04_07_182737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -25,6 +29,17 @@ ActiveRecord::Schema.define(version: 2020_04_07_155820) do
     t.string "password_digest"
     t.string "state"
     t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "second_name"
+    t.string "email"
+    t.string "password"
+    t.string "phone"
+    t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
