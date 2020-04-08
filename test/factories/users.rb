@@ -4,7 +4,7 @@ FactoryBot.define do
     second_name { 'Secondname' }
     email { 'email@test.com' }
     password { '1234qwer' }
-    phone { '+123456789' }
+    phone { '12345678900' }
     state { 'active' }
   end
 end
