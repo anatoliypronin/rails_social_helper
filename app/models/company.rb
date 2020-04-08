@@ -8,9 +8,7 @@ class Company < ApplicationRecord
     validates :email_registration, uniqueness: true, 'valid_email_2/email': true
     validates :email_notification, uniqueness: true, 'valid_email_2/email': true
     validates :password_digest, length: { minimum: 8 }
-    validates :state, inclusion: {
-    in: %w[active deleted]
-  }
+    validates :state, inclusion: { in: %w[active deleted] }
     validates :phone, uniqueness: true, numericality: { only_integer: true }, length: { is: 11 }
     
 
