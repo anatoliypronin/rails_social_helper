@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-#gem "email_validator"
+gem 'rubocop', require: false
 gem "valid_email2"
 
 # Use Active Storage variant
@@ -58,4 +58,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use valid_email2 for validation email format
-gem 'valid_email2'
