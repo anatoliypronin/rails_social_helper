@@ -4,8 +4,6 @@ class CompanyTest < ActiveSupport::TestCase
   
   test 'Should create company' do
     company = build :company
-    #puts company.errors.messages
-    #puts attributes_for(:company)
     assert company.save
   end
 
