@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rubocop', require: false
 gem "valid_email2"
+gem 'enumerize'
+gem 'state_machines'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
