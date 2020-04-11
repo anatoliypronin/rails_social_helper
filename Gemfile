@@ -22,10 +22,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'rubocop', require: false
-gem "valid_email2"
-gem 'enumerize'
-gem 'state_machines'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -60,3 +56,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use valid_email2 for validation email format
+gem 'valid_email2'
+# Enumerated attributes with I18n and ActiveRecord supprt
+gem 'enumerize'
+# StateMachines Active Record Integration
+gem 'state_machines-activerecord'
+# RuboCop is a Ruby static code analyzer and code formatter
+gem 'rubocop', require: false
+# Haml-rails provides Haml generators for Rails 5
+gem "haml-rails", "~> 2.0"
+# Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
+gem 'simple_form'
