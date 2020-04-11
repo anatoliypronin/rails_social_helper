@@ -60,3 +60,17 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use valid_email2 for validation email format
+<<<<<<< HEAD
+=======
+gem 'valid_email2'
+# Enumerated attributes with I18n and ActiveRecord supprt
+gem 'enumerize'
+# StateMachines Active Record Integration
+gem 'state_machines-activerecord'
+# RuboCop is a Ruby static code analyzer and code formatter
+gem 'rubocop', require: false
+# Haml-rails provides Haml generators for Rails 5
+gem "haml-rails", "~> 2.0"
+# Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
+gem 'simple_form'
+>>>>>>> develop : install necessary gems for this project
