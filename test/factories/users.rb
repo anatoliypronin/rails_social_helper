@@ -5,6 +5,5 @@ FactoryBot.define do
     email
     password_digest
     phone
-    state { 'active' }
   end
 end

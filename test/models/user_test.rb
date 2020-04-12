@@ -52,18 +52,18 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'Should not create user with invalid phone format' do
-    user = build :user, phone: '+1234567891'
+    user = build :user, phone: '+12314567891'
     assert_not user.save
   end
 
   test 'Should not create user with phone length != 11' do
-    user = build :user, phone: '+1234567891'
+    user = build :user, phone: '+12134567891'
     assert_not user.save
   end
 
   test 'Should not create user with not unique phone' do
-    user1 = build :user
-    user2 = build :user
+    user1 = build :user, phone: '+12345678911'
+    user2 = build :user, phone: '+12345678911'
     user1.save
     assert_not user2.save
   end
@@ -76,5 +76,11 @@ class UserTest < ActiveSupport::TestCase
   test 'Should not create user with invalid state property' do
     user = build :user, state: 'test'
     assert_not user.save
+  end
+
+  test 'Should change user state to deleted' do
+    user = create :user
+    user.del
+    assert_equal 'deleted', user.state
   end
 end
