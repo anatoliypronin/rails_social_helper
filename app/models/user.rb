@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  belongs_to :city
+
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :second_name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, 'valid_email_2/email': true
