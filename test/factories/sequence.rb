@@ -10,4 +10,8 @@ FactoryBot.define do
   sequence :phone do
     rand 10**10..10**11
   end
+
+  sequence :name do
+    ('а'..'я').to_a.sample(8).join
+  end
 end
