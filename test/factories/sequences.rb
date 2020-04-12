@@ -1,9 +1,15 @@
 FactoryBot.define do
-  sequence :name do |n|
-    "string#{n}"
-  end
-  sequence :email do |n|
-    "email#{n}@factory.com"
-  end
-end
-  
+    sequence :string, aliases: [:name, :city, :district, :adress, :password_digest] do |n|
+        "long string#{n}"
+      end
+    sequence :email_registration do |n|
+        "email#{n}@factory.com"
+      end
+    sequence :email_notification do |n|
+        "email#{n}@factory.com"
+      end
+    sequence :phone do |n|
+        "1234567891#{n}"
+      end 
+ end
+ 

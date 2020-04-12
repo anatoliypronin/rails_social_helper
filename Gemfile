@@ -52,7 +52,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
+  # Easy installation and use of web drivers to run system tests with browsersgff
   gem 'webdrivers'
 end
 
@@ -64,13 +64,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 =======
 gem 'valid_email2'
 # Enumerated attributes with I18n and ActiveRecord supprt
-gem 'enumerize'
+#gem 'enumerize'
 # StateMachines Active Record Integration
 gem 'state_machines-activerecord'
 # RuboCop is a Ruby static code analyzer and code formatter
 gem 'rubocop', require: false
 # Haml-rails provides Haml generators for Rails 5
-gem "haml-rails", "~> 2.0"
+#gem "haml-rails", "~> 2.0"
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
 gem 'simple_form'
+<<<<<<< HEAD
 >>>>>>> develop : install necessary gems for this project
+=======
+gem 'erubis'
+>>>>>>> change company test and add sequences
