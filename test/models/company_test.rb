@@ -5,7 +5,6 @@ class CompanyTest < ActiveSupport::TestCase
   test 'Should create company' do
     company = build :company
     assert company.save
-    puts attributes_for(:company)
   end
 
   test 'Should not create company without name' do
@@ -14,8 +13,8 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test 'Should not create company with not unique name' do
-    company1 = build :company
-    company2 = build :company
+    company1 = build :company, name: "Name of very big company"
+    company2 = build :company, name: "Name of very big company"
     company1.save
     assert_not company2.save
   end
@@ -61,8 +60,8 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test 'Should not create company with not unique email_registration' do
-    company1 = build :company
-    company2 = build :company
+    company1 = build :company, email_registration: "email@mail.ru"
+    company2 = build :company, email_registration: "email@mail.ru"
     company1.save
     assert_not company2.save
   end
@@ -78,8 +77,8 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test 'Should not create company with not unique email_notification' do
-    company1 = build :company
-    company2 = build :company
+    company1 = build :company, email_notification: "email@mail.ru"
+    company2 = build :company, email_notification: "email@mail.ru"
     company1.save
     assert_not company2.save
   end
@@ -105,10 +104,10 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test 'Should not create company with not unique phone' do
-    company1 = build :company
-    company2 = build :company
+    company1 = build :company, phone: "12345678911"
+    company2 = build :company, phone: "12345678911"
     company1.save
-    assert_not company2.save
+    assert_not company2.save 
   end
 
   test 'Should not create company without state' do
