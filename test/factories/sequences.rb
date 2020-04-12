@@ -9,7 +9,6 @@ FactoryBot.define do
         "email#{n}@factory.com"
       end
     sequence :phone do |n|
-        "1234567891#{n}"
+       "1234567890#{n}"
       end 
  end
- 
