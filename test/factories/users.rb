@@ -3,7 +3,7 @@ FactoryBot.define do
     first_name
     second_name
     email
-    password
+    password_digest
     phone
     state { 'active' }
   end
