@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  validates :city, presence: true, length: { in: 2..60 }
+  validates :city, presence: true, length: { in: 2..30 }
   validates :district, presence: true, length: { in: 2..60 }
   validates :adress, presence: true, length: { minimum: 10 }
   validates :email_registration, presence: true, uniqueness: true, 'valid_email_2/email': true

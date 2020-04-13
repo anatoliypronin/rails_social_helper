@@ -53,5 +53,8 @@ ActiveRecord::Schema.define(version: 2020_04_12_131258) do
     t.index ["city_id"], name: "index_users_on_city_id"
   end
 
+<<<<<<< HEAD
   add_foreign_key "users", "cities"
+=======
+>>>>>>> modifications
 end
