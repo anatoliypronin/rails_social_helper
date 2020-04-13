@@ -119,4 +119,10 @@ class CompanyTest < ActiveSupport::TestCase
     company = build :company, state: 'test'
     assert_not company.save
   end
+
+  test 'Should change company state to deleted' do
+  company = create :company
+  company.del
+  assert_equal 'deleted', company.state
+  end
 end
