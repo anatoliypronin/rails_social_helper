@@ -40,12 +40,12 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test 'Should not create company without adress' do
-    company = build :company, adress: nil
+    company = build :company, address: nil
     assert_not company.save
   end
 
   test 'Should not create company with too short adress' do
-    company = build :company, adress: 'city'
+    company = build :company, address: 'city'
     assert_not company.save
   end
 

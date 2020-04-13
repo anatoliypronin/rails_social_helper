@@ -4,10 +4,10 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :city
       t.string :district
-      t.string :adress
+      t.string :address
       t.string :email_registration
       t.string :email_notification
-      t.string :password
+      t.string :password_digest
       t.string :state
       t.string :phone
 

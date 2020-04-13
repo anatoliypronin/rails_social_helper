@@ -3,7 +3,7 @@ FactoryBot.define do
         name 
         city 
         district
-        adress 
+        address 
         email_registration 
         email_notification
         password_digest
