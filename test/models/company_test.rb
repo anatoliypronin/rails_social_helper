@@ -25,7 +25,7 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test 'Should not create company with too long city name' do
-    company = build :company, city: 'Nnnnnnnnnnnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaammmmmmmmmmmmmmmmmmmmmmmmmmeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+    company = build :company, city: 'Tooooooooooooooooo long city name'
     assert_not company.save
   end
 
@@ -35,7 +35,7 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test 'Should not create company with too long district name' do
-    company = build :company, district: 'Nnnnnnnnnnnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaammmmmmmmmmmmmmmmmmmmmmmmmmeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+    company = build :company, district: 'Tooooooooooooooooooooooo looooooooooooooooooooooong diiiiiistrict naaaaammmee'
     assert_not company.save
   end
 

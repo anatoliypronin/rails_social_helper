@@ -8,6 +8,6 @@ FactoryBot.define do
         email_notification
         password_digest
         phone 
-        state { 'active' }
     end
   end
+  
