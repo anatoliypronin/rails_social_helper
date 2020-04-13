@@ -8,4 +8,17 @@ class Company < ApplicationRecord
   validates :password_digest, presence: true, length: { minimum: 8 }
   validates :state, inclusion: { in: %w[active deleted] }
   validates :phone, uniqueness: true, presence: true, numericality: { only_integer: true }, length: { is: 11 }  
+
+  state_machine initial: :active do
+    state :active
+    state :deleted
+
+    event :del do
+      transition active: :deleted
+    end
+
+    event :restore do
+     transition deleted: :active
+    end
+  end
 end
