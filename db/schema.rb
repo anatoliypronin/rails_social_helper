@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_04_12_131258) do
+=======
+ActiveRecord::Schema.define(version: 2020_04_15_111423) do
+>>>>>>> add not null attribute for all company columns
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,15 +31,22 @@ ActiveRecord::Schema.define(version: 2020_04_12_131258) do
   end
 
   create_table "companies", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "city", null: false
+    t.string "district", null: false
+    t.string "address", null: false
+    t.string "email_registration", null: false
+    t.string "email_notification", null: false
+    t.string "password_digest", null: false
+    t.string "state", null: false
+    t.string "phone", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "services", force: :cascade do |t|
     t.string "name"
-    t.string "city"
-    t.string "district"
-    t.string "address"
-    t.string "email_registration"
-    t.string "email_notification"
-    t.string "password_digest"
     t.string "state"
-    t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
