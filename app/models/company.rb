@@ -6,7 +6,6 @@ class Company < ApplicationRecord
   validates :email_registration, presence: true, uniqueness: true, 'valid_email_2/email': true
   validates :email_notification, presence: true, uniqueness: true, 'valid_email_2/email': true
   validates :password_digest, presence: true, uniqueness: true, length: { minimum: 8 }
-  validates :state, inclusion: { in: %w[active deleted] }
   validates :phone, uniqueness: true, presence: true, numericality: { only_integer: true }, length: { is: 11 }  
 
   state_machine initial: :active do
@@ -18,7 +17,7 @@ class Company < ApplicationRecord
     end
 
     event :restore do
-     transition deleted: :active
+      transition deleted: :active
     end
   end
 end

@@ -12,6 +12,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_04_12_131258) do
 =======
 ActiveRecord::Schema.define(version: 2020_04_15_111423) do
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 2020_04_15_111423) do
 =======
 ActiveRecord::Schema.define(version: 2020_04_15_125004) do
 >>>>>>> add index to unique attribute for company
+=======
+ActiveRecord::Schema.define(version: 2020_04_15_111423) do
+>>>>>>> fix chenges
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,28 +50,16 @@ ActiveRecord::Schema.define(version: 2020_04_15_125004) do
     t.string "phone", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["address"], name: "index_companies_on_address", unique: true
-    t.index ["email_notification"], name: "index_companies_on_email_notification", unique: true
-    t.index ["email_registration"], name: "index_companies_on_email_registration", unique: true
     t.index ["name"], name: "index_companies_on_name", unique: true
-    t.index ["password_digest"], name: "index_companies_on_password_digest", unique: true
-    t.index ["phone"], name: "index_companies_on_phone", unique: true
-  end
-
-  create_table "services", force: :cascade do |t|
-    t.string "name"
-    t.string "state"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "second_name", null: false
-    t.string "email", null: false
-    t.string "password_digest", null: false
-    t.string "phone", null: false
-    t.string "state", null: false
+    t.string "first_name"
+    t.string "second_name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "phone"
+    t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "city_id"
