@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCompanies < ActiveRecord::Migration[6.0]
   def change
     create_table :companies do |t|
@@ -10,7 +12,7 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
       t.string :password_digest, null: false
       t.string :state, null: false
       t.string :phone, null: false
-      t.index ["name"], name: "index_companies_on_name", unique: true
+      t.index ['name'], name: 'index_companies_on_name', unique: true
 
       t.timestamps
     end
