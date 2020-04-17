@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if City.count.zero?
   path = File.join(File.dirname(__FILE__), './seeds/cities.json')
   cities_data = JSON.parse(File.read(path))
