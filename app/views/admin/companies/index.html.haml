@@ -1,0 +1,21 @@
+%table
+  %tr
+    %td Идентификатор
+    %td Название организации
+    %td Город
+    %td Район
+    %td Адрес
+    %td E-mail для регистрации
+    %td E-mail для отправки сообщений
+    %td Телефон
+  - @companies.each do |company|
+    %tr
+      %td= company.id
+      %td= company.name
+      %td= company.city
+      %td= company.district
+      %td= company.address
+      %td= company.email_registration
+      %td= company.email_registration
+      %td= company.phone
+    
