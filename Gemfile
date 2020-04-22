@@ -21,7 +21,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -67,3 +67,5 @@ gem 'rubocop', require: false
 gem "haml-rails", "~> 2.0"
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
 gem 'simple_form'
+# Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Hanami (formerly Lotus).
+gem 'bootstrap', '~> 4.4.1'
