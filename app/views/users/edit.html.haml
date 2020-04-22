@@ -1,0 +1,8 @@
+= simple_form_for @user, url: user_path(@user.id) do |f|
+  = f.input :first_name
+  = f.input :second_name
+  = f.input :email
+  = f.input :phone
+  = f.input :city_id, collection: @cities, prompt: :translate
+  = f.input :password_digest
+  = f.submit class: 'btn btn-info'

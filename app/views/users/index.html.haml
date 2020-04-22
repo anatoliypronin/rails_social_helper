@@ -1,0 +1,18 @@
+%table.table
+  %tr
+    %th id
+    %th first_name
+    %th second_name
+    %th phone
+    %th email
+    %th city
+    %th manage
+  - @users.each do |user|
+    %tr
+      %td= link_to user.id, user_path(user.id), target: :_blank
+      %td= user.first_name
+      %td= user.second_name
+      %td= user.phone
+      %td= user.email
+      %td= user.city_id
+      %td= link_to 'Edit', edit_user_path(user.id)
