@@ -12,7 +12,7 @@
 
   - @companies.each do |company|
     %tr
-      %td= company.id
+      %td= link_to company.id, admin_company_path(company.id), target: :_blank
       %td= company.name
       %td= company.city
       %td= company.district

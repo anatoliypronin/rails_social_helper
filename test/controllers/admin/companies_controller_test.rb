@@ -31,4 +31,11 @@ class Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
       company = Company.find_by(name: company_attrs[:name])
       assert_nil company
     end
+
+    test 'should get show company page' do
+      company = create :company
+
+      get admin_company_path(company.id)
+      assert_response :success
+    end 
   end

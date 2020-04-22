@@ -15,7 +15,12 @@ class Admin::CompaniesController < Admin::ApplicationController
       else
         render action: :new
       end
-    end  
+    end 
+
+    def show
+      @company = Company.find(params[:id])
+    end
+  
 
     private
 
