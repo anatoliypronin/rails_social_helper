@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :company do
     name
-    city
+    city { generate :city }
     district
     address
     email_registration

@@ -8,6 +8,8 @@
     %td E-mail для регистрации
     %td E-mail для отправки сообщений
     %td Телефон
+    %td Пароль
+
   - @companies.each do |company|
     %tr
       %td= company.id
@@ -18,4 +20,6 @@
       %td= company.email_registration
       %td= company.email_registration
       %td= company.phone
+      %td= company.password_digest
+
     
