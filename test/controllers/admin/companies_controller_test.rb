@@ -1,11 +1,13 @@
 require 'test_helper'
 
 class Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
-    test 'should get index companies' do
-        create :company
+    setup do
+    @company = create :company
+  end
 
-        get admin_companies_path
-        assert_response :success
+    test 'should get index companies' do
+      get admin_companies_path
+      assert_response :success
     end
 
     test 'should get new company page' do
@@ -33,29 +35,30 @@ class Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
     end
 
     test 'should get show company page' do
-      company = create :company
-
-      get admin_company_path(company.id)
+      get admin_company_path(@company.id)
       assert_response :success
     end 
 
     test 'should get edit company page' do
-      company = create :company
-
-      get edit_admin_company_path(company.id)
+      get edit_admin_company_path(@company.id)
       assert_response :success
     end 
 
     test 'should put update сompany' do
-      company = create :company 
-
       attrs = {}
       attrs[:name] = generate :name
   
-      put admin_company_path(company.id), params: { company: attrs }
+      put admin_company_path(@company.id), params: { company: attrs }
       assert_response :redirect
   
-      company.reload
-      assert_equal attrs[:name], company.name
+      @company.reload
+      assert_equal attrs[:name], @company.name
+    end
+
+    test 'should delete destroy сompany' do
+      delete admin_company_path(@company.id)
+      assert_response :redirect
+
+      assert_not Company.exists?(@company.id)
     end
   end

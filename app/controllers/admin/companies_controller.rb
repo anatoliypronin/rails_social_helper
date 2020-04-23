@@ -34,6 +34,13 @@ class Admin::CompaniesController < Admin::ApplicationController
         render action: :edit
       end
     end
+
+    def destroy
+      company = Company.find(params[:id])
+      company.destroy
+
+      redirect_to action: :index
+    end
   
 
     private
