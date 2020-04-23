@@ -38,4 +38,24 @@ class Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
       get admin_company_path(company.id)
       assert_response :success
     end 
+
+    test 'should get edit company page' do
+      company = create :company
+
+      get edit_admin_company_path(company.id)
+      assert_response :success
+    end 
+
+    test 'should put update сompany' do
+      company = create :company 
+
+      attrs = {}
+      attrs[:name] = generate :name
+  
+      put admin_company_path(company.id), params: { company: attrs }
+      assert_response :redirect
+  
+      company.reload
+      assert_equal attrs[:name], company.name
+    end
   end

@@ -9,6 +9,7 @@
     %td E-mail для отправки сообщений
     %td Телефон
     %td Пароль
+    %td Управление
 
   - @companies.each do |company|
     %tr
@@ -21,5 +22,6 @@
       %td= company.email_registration
       %td= company.phone
       %td= company.password_digest
+      %td= link_to 'Edit', edit_admin_company_path(company.id)
 
     

@@ -20,6 +20,20 @@ class Admin::CompaniesController < Admin::ApplicationController
     def show
       @company = Company.find(params[:id])
     end
+
+    def edit
+      @company = Company.find(params[:id])
+    end
+
+    def update
+      @company = Company.find(params[:id])
+  
+      if @company.update(company_attrs)
+        redirect_to action: :index
+      else
+        render action: :edit
+      end
+    end
   
 
     private
