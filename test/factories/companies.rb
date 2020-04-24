@@ -8,7 +8,7 @@ FactoryBot.define do
     address
     email_registration
     email_notification
-    password_digest
+    password  { '1234567890' }
     phone
   end
 end

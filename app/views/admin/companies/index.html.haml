@@ -8,7 +8,6 @@
     %th E-mail для регистрации
     %th E-mail для отправки сообщений
     %th Телефон
-    %th Пароль
     %th Управление
 
   - @companies.each do |company|
@@ -21,7 +20,6 @@
       %td= company.email_registration
       %td= company.email_registration
       %td= company.phone
-      %td= company.password_digest
       %td= link_to 'Edit', edit_admin_company_path(company.id)
 
     

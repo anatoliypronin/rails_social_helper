@@ -47,6 +47,7 @@ class Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
     test 'should put update сompany' do
       attrs = {}
       attrs[:name] = generate :name
+      attrs[:password] = '1234567890'
   
       put admin_company_path(@company.id), params: { company: attrs }
       assert_response :redirect

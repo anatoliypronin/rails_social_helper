@@ -7,7 +7,7 @@ class Company < ApplicationRecord
   validates :address, presence: true, length: { minimum: 10 }
   validates :email_registration, presence: true, uniqueness: true, 'valid_email_2/email': true
   validates :email_notification, presence: true, uniqueness: true, 'valid_email_2/email': true
-  validates :password_digest, presence: true, uniqueness: true, length: { minimum: 8 }
+  validates :password, length: { minimum: 8 }
   validates :phone, uniqueness: true, presence: true, numericality: { only_integer: true }, length: { is: 11 }
   
   has_secure_password
