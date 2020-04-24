@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title Админка компаний
+
+    = csrf_meta_tags 
+    = csp_meta_tag
+    = stylesheet_link_tag 'admin_application', media: :all
+  %body
+    .container
+      =render "layouts/admin/header"
+      = yield

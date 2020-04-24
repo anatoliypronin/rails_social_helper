@@ -1,15 +1,15 @@
-%table
-  %tr
-    %td Идентификатор
-    %td Название организации
-    %td Город
-    %td Район
-    %td Адрес
-    %td E-mail для регистрации
-    %td E-mail для отправки сообщений
-    %td Телефон
-    %td Пароль
-    %td Управление
+%table.table.table-hover
+  %tr.table-active
+    %th Идентификатор
+    %th Название организации
+    %th Город
+    %th Район
+    %th Адрес
+    %th E-mail для регистрации
+    %th E-mail для отправки сообщений
+    %th Телефон
+    %th Пароль
+    %th Управление
 
   - @companies.each do |company|
     %tr
