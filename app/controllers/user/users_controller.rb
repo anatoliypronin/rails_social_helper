@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-class UsersController < ApplicationController
+class User::UsersController < User::ApplicationController
   def index
     @users = User.all
-    @cities = City.all
   end
 
   def new
@@ -47,6 +46,6 @@ class UsersController < ApplicationController
   end
 
   def users_params
-    params.require(:user).permit(:first_name, :second_name, :phone, :password_digest, :email, :city_id)
+    params.require(:user).permit(:first_name, :second_name, :phone, :password, :email, :city_id)
   end
 end
