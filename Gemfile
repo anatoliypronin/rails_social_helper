@@ -74,4 +74,5 @@ gem 'simple_form'
 gem 'bootstrap', '~> 4.4.1'
 # jQuery! For Rails!
 gem 'jquery-rails'
-
+# Russian language support for Ruby and Rails, using I18n library.
+gem 'russian', '~> 0.6.0'
