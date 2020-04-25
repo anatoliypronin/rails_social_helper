@@ -66,7 +66,7 @@ gem 'state_machines-activerecord'
 # RuboCop is a Ruby static code analyzer and code formatter
 gem 'rubocop', require: false
 # Haml-rails provides Haml generators for Rails 5
-# gem "haml-rails", "~> 2.0"
+gem "haml-rails", "~> 2.0"
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
 gem 'erubis'
 gem 'simple_form'
