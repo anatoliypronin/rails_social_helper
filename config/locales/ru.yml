@@ -1,0 +1,32 @@
+ru:
+  attributes:
+    id: Идентификатор
+    city: Город
+    control: Управление
+    homepage: Домашняя страница
+
+  header:
+    logout: Выход
+    edit: Редактировать
+
+  activerecord:
+    state_machines:
+      user:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+          events:
+            del: Удалить
+            restore: Восстановить
+    models:
+      user:
+        one: Пользователь
+        other: Пользователи
+    attributes:
+      user:
+        first_name: Имя
+        second_name: Фамилия
+        phone: Номер телефона
+        email: E-mail
+        password: Пароль
