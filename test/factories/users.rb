@@ -4,7 +4,7 @@ FactoryBot.define do
     first_name
     second_name
     email
-    password_digest
+    password { 'qweasdzxc' }
     phone
   end
 end

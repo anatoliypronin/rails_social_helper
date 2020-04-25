@@ -36,13 +36,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.save
   end
 
-  test 'Should not create user without password_digest' do
-    user = build :user, password_digest: nil
+  test 'Should not create user without password' do
+    user = build :user, password: nil
     assert_not user.save
   end
 
-  test 'Should not create user with short password_digest' do
-    user = build :user, password_digest: 'qwerty'
+  test 'Should not create user with short password' do
+    user = build :user, password: 'qwerty'
     assert_not user.save
   end
 
