@@ -5,6 +5,7 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = create :user
+    post sessions_path, params: { user: { email: @user.email, password: @user.password } }
   end
 
   test 'shoud get index users' do
