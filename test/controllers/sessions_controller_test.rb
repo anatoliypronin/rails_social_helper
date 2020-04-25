@@ -26,9 +26,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'shoud destroy user session' do
     user = create :user
-    post sessions_path, params: { user: { email: user.email, password: user.password } }
-    assert_response :redirect
-    assert_equal session[:user_id], user.id
+    sign_in_as_user(user)
 
     delete session_path(session[:user_id])
     assert_response :redirect
