@@ -44,7 +44,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'shoud put update user' do
     attrs = {}
     attrs['second_name'] = generate :second_name
-    attrs['password'] = 'qweasdzxc'
 
     put user_user_path(@user.id), params: { user: attrs }
     assert_response :redirect

@@ -7,7 +7,6 @@ class User::UsersController < User::ApplicationController
 
   def new
     @user = User.new
-    @cities = City.all
   end
 
   def create
@@ -25,7 +24,6 @@ class User::UsersController < User::ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @cities = City.all
   end
 
   def update
