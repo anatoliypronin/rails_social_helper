@@ -1,15 +1,15 @@
 %table.table.table-hover
   %tr.table-active
-    %th Идентификатор
-    %th Название организации
-    %th Город
-    %th Район
-    %th Адрес
-    %th E-mail для регистрации
-    %th E-mail для отправки сообщений
-    %th Телефон
-    %th Управление
-
+    %th= t('attributes.id')
+    %th= Company.human_attribute_name('name')
+    %th= Company.human_attribute_name('city')
+    %th= Company.human_attribute_name('district')
+    %th= Company.human_attribute_name('address')
+    %th= Company.human_attribute_name('email_registration')
+    %th= Company.human_attribute_name('email_notification')
+    %th= Company.human_attribute_name('phone')
+    %th= Company.human_attribute_name('state')
+    %th= t('attributes.control')
   - @companies.each do |company|
     %tr
       %td= link_to company.id, admin_company_path(company.id), target: :_blank
@@ -20,6 +20,5 @@
       %td= company.email_registration
       %td= company.email_registration
       %td= company.phone
-      %td= link_to 'Edit', edit_admin_company_path(company.id)
-
-    
+      %td= company.human_state_name
+      %td= link_to 'Редактировать', edit_admin_company_path(company.id)    
