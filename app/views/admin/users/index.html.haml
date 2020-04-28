@@ -1,0 +1,20 @@
+%table.table
+  %tr
+    %th= t('attributes.id')
+    %th= User.human_attribute_name('first_name')
+    %th= User.human_attribute_name('second_name')
+    %th= User.human_attribute_name('phone')
+    %th= User.human_attribute_name('email')
+    %th= t('attributes.city')
+    %th= User.human_attribute_name('state')
+    %th= t('attributes.control')
+  - @users.each do |user|
+    %tr
+      %td= link_to user.id, admin_user_path(user.id), target: :_blank
+      %td= user.first_name
+      %td= user.second_name
+      %td= user.phone
+      %td= user.email
+      %td= user.human_state_name
+      %td= user.city.name
+      %td= link_to t('attributes.edit'), edit_admin_user_path(user.id)

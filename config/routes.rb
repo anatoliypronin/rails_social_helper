@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :user do
+  namespace :admin do
     resources :users
+    resources :sessions, only: %i[new create destroy]
   end
-
-  resources :sessions, only: %i[new create destroy]
 end

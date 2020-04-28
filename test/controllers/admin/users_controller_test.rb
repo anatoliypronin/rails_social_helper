@@ -9,12 +9,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'shoud get index users' do
-    get user_users_path
+    get admin_users_path
     assert_response :success
   end
 
   test 'shoud get new user page' do
-    get new_user_user_path
+    get new_admin_user_path
     assert_response :success
   end
 
@@ -24,7 +24,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     city.reload
 
     user_attrs = attributes_for(:user, city_id: city.id)
-    post user_users_path, params: { user: user_attrs }
+    post admin_users_path, params: { user: user_attrs }
     assert_response :redirect
 
     user = User.last
@@ -32,12 +32,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'shoud get show user page' do
-    get user_user_path(@user.id)
+    get admin_user_path(@user.id)
     assert_response :success
   end
 
   test 'shoud get edit user page' do
-    get edit_user_user_path(@user.id)
+    get edit_admin_user_path(@user.id)
     assert_response :success
   end
 
@@ -45,7 +45,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     attrs = {}
     attrs['second_name'] = generate :second_name
 
-    put user_user_path(@user.id), params: { user: attrs }
+    put admin_user_path(@user.id), params: { user: attrs }
     assert_response :redirect
     @user.reload
 
@@ -53,7 +53,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'shoud destroy user' do
-    delete user_user_path(@user.id)
+    delete admin_user_path(@user.id)
     assert_response :redirect
 
     assert_not User.exists?(@user.id)

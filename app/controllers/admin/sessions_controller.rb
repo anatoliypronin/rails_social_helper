@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SessionsController < ApplicationController
+class Admin::SessionsController < ApplicationController
   def new
 
   end
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:user][:email])
     if user&.authenticate(params[:user][:password])
       user_sign_in(user)
-      redirect_to user_users_path
+      redirect_to admin_users_path
     else
       render action: :new
     end
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     user_sign_out
-    redirect_to new_session_path
+    redirect_to new_admin_session_path
   end
 end
