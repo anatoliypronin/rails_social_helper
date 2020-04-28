@@ -22,7 +22,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_passwordgem
+# Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
@@ -68,7 +68,10 @@ gem 'rubocop', require: false
 # Haml-rails provides Haml generators for Rails 5
 gem 'haml-rails', '~> 2.0'
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
+gem 'bootstrap', '~> 4.4.1'
 gem 'erubis'
+gem 'jquery-rails'
+gem 'russian', '~> 0.6.0'
 gem 'simple_form'
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Hanami (formerly Lotus).
 gem 'bootstrap', '~> 4.4.1'

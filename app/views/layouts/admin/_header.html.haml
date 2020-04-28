@@ -2,5 +2,4 @@
   = link_to t('header.homepage'), admin_users_path, class: 'navbar-brand'
   %ul.navbar.nav
     %div
-      %div{style: 'color: white'}= current_user.email
-      %div{style: 'text-align: right'}= link_to t('header.logout'), admin_session_path(session[:user_id]), method: :delete
+      %div{style: 'text-align: right'}= link_to t('header.logout')
