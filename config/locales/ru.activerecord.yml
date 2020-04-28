@@ -1,0 +1,26 @@
+ru:
+  activerecord:
+    state_machines:
+      company:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+          events:
+            del: Удалить
+            restore: Восстановить
+    models:
+      company:
+        one: Компания
+        other: Компании
+    attributes:
+      company:
+        name: Имя
+        city: Фамилия
+        district: Район
+        address: Адрес
+        email_registration: E-mail для регистрации
+        email_notification: E-mail для нотификации
+        password: Пароль 
+        phone: Номер телефона
+        state: Статус

@@ -1,0 +1,9 @@
+= simple_form_for @company, url: admin_company_path(@company.id) do |f|
+  = f.input :name
+  = f.input :city
+  = f.input :district
+  = f.input :address
+  = f.input :email_registration
+  = f.input :email_notification
+  = f.input :phone
+  = f.button :submit, class: "btn btn-secondary"
