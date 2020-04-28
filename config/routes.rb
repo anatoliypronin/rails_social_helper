@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   namespace :admin do
-    root to: 'admin/companies#index'
+    root to: 'companies#index'
 
     resources :companies
   end
