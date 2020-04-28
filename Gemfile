@@ -76,3 +76,5 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 # Russian language support for Ruby and Rails, using I18n library.
 gem 'russian', '~> 0.6.0'
+# Draper adds an object-oriented layer of presentation logic to your Rails application.
+gem 'draper'
