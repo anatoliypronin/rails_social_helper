@@ -10,7 +10,7 @@ FactoryBot.define do
   end
 
   sequence :phone do
-    rand 10**10..10**11
+    rand(10**10..10**11).to_s
   end
 
   sequence :name do

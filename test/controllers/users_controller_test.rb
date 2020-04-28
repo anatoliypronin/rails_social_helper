@@ -28,7 +28,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
 
     user = User.last
-    assert_equal user_attrs[:phone].to_s, user.phone
+    assert_equal user_attrs[:phone], user.phone
   end
 
   test 'shoud get show user page' do
