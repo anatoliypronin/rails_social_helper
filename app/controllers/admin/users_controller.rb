@@ -12,6 +12,7 @@ class Admin::UsersController < Admin::ApplicationController
   def create
     @user = User.new(users_params)
     if @user.save
+      UserMailer.welcome_email(@user).deliver_now
       redirect_to action: :index
     else
       render action: :new
