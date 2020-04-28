@@ -85,12 +85,12 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test 'Should not create company without password' do
-    company = build :company, password_digest: nil
+    company = build :company, password: nil
     assert_not company.save
   end
 
   test 'Should not create company with short password' do
-    company = build :company, password_digest: 'qwerty'
+    company = build :company, password: 'qwerty'
     assert_not company.save
   end
 

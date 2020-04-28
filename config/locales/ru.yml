@@ -1,0 +1,9 @@
+ru:
+  attributes:
+    id: Идентификатор
+    control: Управление
+    homepage: Домашняя страница
+
+  header:
+    logout: Выход
+    edit: Редактировать
