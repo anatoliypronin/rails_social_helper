@@ -9,9 +9,9 @@ class Company < ApplicationRecord
   validates :email_notification, presence: true, uniqueness: true, 'valid_email_2/email': true
   validates :password, length: { minimum: 8 }
   validates :phone, uniqueness: true, presence: true, numericality: { only_integer: true }, length: { is: 11 }
-  
+
   has_secure_password
-  
+
   state_machine initial: :active do
     state :active
     state :deleted
