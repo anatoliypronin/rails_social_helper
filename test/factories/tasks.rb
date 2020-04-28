@@ -3,5 +3,7 @@ FactoryBot.define do
     description
     title
     address
+    user
+    company
   end
 end

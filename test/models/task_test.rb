@@ -3,7 +3,10 @@ require 'test_helper'
 class TaskTest < ActiveSupport::TestCase
   test 'Should create task' do
     task = build :task
-    assert task.save
+    task.save
+
+    created_task = Task.last
+    assert created_task
   end
 
   test 'Should not create task without description' do
@@ -26,14 +29,14 @@ class TaskTest < ActiveSupport::TestCase
     assert_not task.save
   end
 
-  test 'Should not create user with invalid state property' do
-    user = build :user, state: 'test'
-    assert_not user.save
+  test 'Should not create task with invalid state property' do
+    task = build :task, state: 'test'
+    assert_not task.save
   end
 
-  test 'Should change user state to deleted' do
-    user = create :user
-    user.del
-    assert_equal 'deleted', user.state
+  test 'Should change task state to deleted' do
+    task = create :task
+    task.del
+    assert_equal 'deleted', task.state
   end
 end

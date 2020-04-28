@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   belongs_to :city
+  has_many :tasks, dependent: :restrict_with_exception
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :second_name, presence: true, length: { maximum: 50 }

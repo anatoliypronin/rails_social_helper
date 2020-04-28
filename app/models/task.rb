@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
-  extend Enumerize
+  belongs_to :user
+  belongs_to :company, optional: true
 
   validates :description, presence: true, length: { minimum: 10 }
   validates :title, presence: true, length: { minimum: 10 }
