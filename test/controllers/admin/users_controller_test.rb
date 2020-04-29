@@ -2,10 +2,9 @@
 
 require 'test_helper'
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
+class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = create :user
-    sign_in_as_user(@user)
   end
 
   test 'shoud get index users' do
