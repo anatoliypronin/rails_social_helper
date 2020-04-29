@@ -32,7 +32,7 @@ class Admin::UsersController < Admin::ApplicationController
     if @user.update(users_params)
       redirect_to action: :index
     else
-      redirect_to action: :edit
+      render action: :edit
     end
   end
 

@@ -20,8 +20,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'shoud post create user' do
     city = create :city
-    city.save
-    city.reload
 
     user_attrs = attributes_for(:user, city_id: city.id)
     post admin_users_path, params: { user: user_attrs }
