@@ -40,9 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_114530) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "service_id"
     t.index ["name"], name: "index_service_on_name", unique: true
-    t.index ["service_id"], name: "index_companie_s_on_service_id"
   end
 
   create_table "users", force: :cascade do |t|

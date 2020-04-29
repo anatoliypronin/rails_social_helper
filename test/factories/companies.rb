@@ -10,5 +10,6 @@ FactoryBot.define do
     email_notification
     password { '1234567890' }
     phone
+    service { create :service }
   end
 end
