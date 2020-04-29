@@ -18,6 +18,14 @@ module AuthHelper
   end
 
   def authentucate_user!
-    redirect_to new_admin_session_path unless user_signed_in?
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def page_owner?(id)
+    current_user.id == id.to_i
+  end
+
+  def permissions_for_user_page(id)
+    redirect_to user_users_path unless page_owner?(id)
   end
 end
