@@ -83,3 +83,5 @@ gem 'russian', '~> 0.6.0'
 gem 'draper'
 # Rails Observers (removed from core in Rails 4.0)
 gem 'rails-observers'
+# ActiveModelSerializers brings convention over configuration to your JSON generation.
+gem 'active_model_serializers', '~> 0.10.0'
