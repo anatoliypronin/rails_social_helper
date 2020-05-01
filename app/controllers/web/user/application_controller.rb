@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
 class Web::User::ApplicationController < Web::ApplicationController
-  before_action :authentucate_user!, only: %i[edit destroy update]
+  rescue_from Pundit::NotAuthorizedError, with: :forbidden
+
+  private
+
+  def forbidden
+    redirect_to users_path
+  end
 end

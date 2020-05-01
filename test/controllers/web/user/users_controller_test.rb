@@ -39,10 +39,10 @@ class Web::User::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'shoud not get edit user/users page without permissions' do
+  test 'shoud not get edit other user/users page' do
     user = create :user
     get edit_user_path(user.id)
-    assert_response :redirect
+    assert_redirected_to users_path
   end
 
   test 'shoud put update user/users' do
@@ -56,10 +56,12 @@ class Web::User::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_equal @user.second_name, attrs['second_name']
   end
 
-  test 'shoud destroy user/users' do
-    delete user_path(@user.id)
-    assert_response :redirect
+  test 'shoud not put update other user/users' do
+    user = create :user
+    attrs = {}
+    attrs['second_name'] = generate :second_name
 
-    assert_not User.exists?(@user.id)
+    put user_path(user.id), params: { user: attrs }
+    assert_redirected_to users_path
   end
 end

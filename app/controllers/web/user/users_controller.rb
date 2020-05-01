@@ -2,7 +2,7 @@
 
 class Web::User::UsersController < Web::User::ApplicationController
   def index
-    @users = User.all.decorate
+    @users = policy_scope(User).decorate
   end
 
   def new
@@ -19,31 +19,23 @@ class Web::User::UsersController < Web::User::ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = policy_scope(User).find(params[:id]).decorate
   end
 
   def edit
-    permissions_for_user_page(params[:id])
-    @user = User.find(params[:id])
+    @user = policy_scope(User).find(params[:id])
+    authorize @user
   end
 
   def update
-    permissions_for_user_page(params[:id])
-    @user = User.find(params[:id])
+    @user = policy_scope(User).find(params[:id])
+    authorize @user
 
     if @user.update(users_params)
       redirect_to action: :show
     else
       render action: :edit
     end
-  end
-
-  def destroy
-    permissions_for_user_page(params[:id])
-    user = User.find(params[:id])
-    user.destroy
-
-    redirect_to new_session_path
   end
 
   def users_params
