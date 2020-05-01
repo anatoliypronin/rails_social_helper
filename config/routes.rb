@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: %i[index show]
+    end
+  end
   namespace :admin do
     resources :users
     root to: 'companies#index'
