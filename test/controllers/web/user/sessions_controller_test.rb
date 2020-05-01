@@ -2,15 +2,15 @@
 
 require 'test_helper'
 
-class User::SessionsControllerTest < ActionDispatch::IntegrationTest
+class Web::User::SessionsControllerTest < ActionDispatch::IntegrationTest
   test 'shoud get new session page' do
-    get new_user_session_path
+    get new_session_path
     assert_response :success
   end
 
   test 'shoud post create new session for user' do
     user = create :user
-    post user_sessions_path, params: { user: { email: user.email, password: user.password } }
+    post sessions_path, params: { user: { email: user.email, password: user.password } }
     assert_response :redirect
     assert_equal session[:user_id], user.id
   end
@@ -18,7 +18,7 @@ class User::SessionsControllerTest < ActionDispatch::IntegrationTest
   test 'shoud post not create new session for user' do
     user = create :user
 
-    post user_sessions_path, params: { user: { email: user.email, password: 'bad_password' } }
+    post sessions_path, params: { user: { email: user.email, password: 'bad_password' } }
 
     assert_response :success
     assert_nil session[:user_id]
@@ -28,7 +28,7 @@ class User::SessionsControllerTest < ActionDispatch::IntegrationTest
     user = create :user
     sign_in_as_user(user)
 
-    delete user_session_path(session[:user_id])
+    delete session_path(session[:user_id])
     assert_response :redirect
 
     assert_nil session[:user_id]

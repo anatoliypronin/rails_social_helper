@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class User::UsersController < User::ApplicationController
+class Web::Admin::UsersController < Web::Admin::ApplicationController
   def index
     @users = User.all.decorate
   end
@@ -23,27 +23,24 @@ class User::UsersController < User::ApplicationController
   end
 
   def edit
-    permissions_for_user_page(params[:id])
     @user = User.find(params[:id])
   end
 
   def update
-    permissions_for_user_page(params[:id])
     @user = User.find(params[:id])
 
     if @user.update(users_params)
-      redirect_to action: :show
+      redirect_to action: :index
     else
       render action: :edit
     end
   end
 
   def destroy
-    permissions_for_user_page(params[:id])
     user = User.find(params[:id])
     user.destroy
 
-    redirect_to new_user_session_path
+    redirect_to action: :index
   end
 
   def users_params
