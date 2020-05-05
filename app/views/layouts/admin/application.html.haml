@@ -1,12 +1,13 @@
 !!!
 %html
   %head
-    %title Админка
-
-    = csrf_meta_tags 
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title SocHelper
+    = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'admin_application', media: :all
+    = stylesheet_link_tag 'admin_application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'admin_application'
   %body
     .container
-      =render "layouts/admin/header"
+      = render 'layouts/admin/header'
       = yield
