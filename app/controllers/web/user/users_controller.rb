@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class Web::User::UsersController < Web::User::ApplicationController
-  def index
-    @users = policy_scope(User).decorate
-  end
-
   def new
     @user = User.new
   end
@@ -12,24 +8,22 @@ class Web::User::UsersController < Web::User::ApplicationController
   def create
     @user = User.new(users_params)
     if @user.save
-      redirect_to action: :index
+      redirect_to action: :show
     else
       render action: :new
     end
   end
 
   def show
-    @user = policy_scope(User).find(params[:id]).decorate
+    @user = current_user.decorate
   end
 
   def edit
-    @user = policy_scope(User).find(params[:id])
-    authorize @user
+    @user = current_user
   end
 
   def update
-    @user = policy_scope(User).find(params[:id])
-    authorize @user
+    @user = current_user
 
     if @user.update(users_params)
       redirect_to action: :show

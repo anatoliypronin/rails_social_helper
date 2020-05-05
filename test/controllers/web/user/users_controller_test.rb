@@ -14,7 +14,7 @@ class Web::User::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'shoud get new user/users page' do
-    get new_user_path
+    get new_users_path
     assert_response :success
   end
 
@@ -30,26 +30,20 @@ class Web::User::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'shoud get show user/users page' do
-    get user_path(@user.id)
+    get users_path
     assert_response :success
   end
 
   test 'shoud get edit user/users page' do
-    get edit_user_path(@user.id)
+    get edit_users_path
     assert_response :success
-  end
-
-  test 'shoud not get edit other user/users page' do
-    user = create :user
-    get edit_user_path(user.id)
-    assert_redirected_to users_path
   end
 
   test 'shoud put update user/users' do
     attrs = {}
     attrs['second_name'] = generate :second_name
 
-    put user_path(@user.id), params: { user: attrs }
+    put users_path, params: { user: attrs }
     assert_response :redirect
     @user.reload
 
@@ -57,11 +51,12 @@ class Web::User::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'shoud not put update other user/users' do
-    user = create :user
+    sign_out_as_user
     attrs = {}
     attrs['second_name'] = generate :second_name
+    put users_path, params: { user: attrs }
 
-    put user_path(user.id), params: { user: attrs }
-    assert_redirected_to users_path
+    assert_not_equal @user.second_name, attrs['second_name']
+    assert_response :redirect
   end
 end
