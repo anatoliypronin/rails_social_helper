@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class Web::User::SessionsController < Web::User::ApplicationController
+class Web::User::UserSessionsController < Web::User::ApplicationController
+  skip_before_action :authentucate_user!
   def new; end
 
   def create
@@ -15,6 +16,6 @@ class Web::User::SessionsController < Web::User::ApplicationController
 
   def destroy
     user_sign_out
-    redirect_to new_session_path
+    redirect_to new_user_sessions_path
   end
 end
