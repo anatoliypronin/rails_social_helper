@@ -2,6 +2,10 @@ FactoryBot.define do
   factory :admin do
     name
     email
-    role { "admin" }
+    password { '1' * 9 }
+
+    trait :editor do
+      role { 'editor' }
+    end
   end
 end

@@ -60,7 +60,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Use valid_email2 for validation email format
 gem 'valid_email2'
 # Enumerated attributes with I18n and ActiveRecord supprt
-# gem 'enumerize'
+gem 'enumerize'
 # StateMachines Active Record Integration
 gem 'state_machines-activerecord'
 # RuboCop is a Ruby static code analyzer and code formatter

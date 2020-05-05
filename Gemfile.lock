@@ -82,6 +82,8 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    enumerize (2.3.1)
+      activesupport (>= 3.2)
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -275,6 +277,7 @@ DEPENDENCIES
   bootstrap (~> 4.4.1)
   byebug
   capybara (>= 2.15)
+  enumerize
   erubis
   factory_bot_rails
   haml-rails (~> 2.0)
