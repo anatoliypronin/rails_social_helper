@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     end
 
     scope module: :user do
-      resources :users, except: :destroy
-      resources :sessions, only: %i[new create destroy]
+      resource :users, except: :destroy
+      resource :user_sessions, only: %i[new create destroy]
     end
   end
 end
