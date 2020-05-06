@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
@@ -17,6 +19,9 @@ class Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should post create company' do
     company_attrs = attributes_for :company
+
+    company_attrs[:district_id] = District.last.id
+
     post admin_companies_path, params: { company: company_attrs }
     assert_response :redirect
 

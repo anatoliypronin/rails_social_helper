@@ -11,8 +11,6 @@ class Admin::CompaniesController < Admin::ApplicationController
 
   def create
     @company = Company.new(company_attrs)
-    p @company.save!
-
     if @company.save
       redirect_to action: :index
     else
@@ -48,6 +46,6 @@ class Admin::CompaniesController < Admin::ApplicationController
   private
 
   def company_attrs
-    params.require(:company).permit(:name, :city, :district, :address, :email_registration, :email_notification, :password, :phone)
+    params.require(:company).permit(:name, :city, :district_id, :address, :email_registration, :email_notification, :password, :phone)
   end
 end
