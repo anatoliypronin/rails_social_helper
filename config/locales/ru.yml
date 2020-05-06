@@ -1,8 +1,10 @@
 ru:
   attributes:
     id: Идентификатор
+    city: Город
     control: Управление
     homepage: Домашняя страница
+    full_name: ФИО
 
   header:
     logout: Выход
