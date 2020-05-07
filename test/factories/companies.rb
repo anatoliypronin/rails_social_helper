@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :company do
     name
     city { generate :city }
-    district { create :district }
+    district
     address
     email_registration
     email_notification
