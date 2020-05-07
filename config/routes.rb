@@ -7,15 +7,16 @@ Rails.application.routes.draw do
     end
   end
   scope module: :web do
+    root to: 'welcome#index'
     namespace :admin do
       resources :users
       root to: 'companies#index'
       resources :companies
     end
 
-    scope module: :user do
-      resource :users, except: :destroy
-      resource :user_sessions, only: %i[new create destroy]
+    namespace :user do
+      resource :profile, only: %i[edit update]
+      resource :sessions, only: %i[new create destroy]
     end
   end
 end

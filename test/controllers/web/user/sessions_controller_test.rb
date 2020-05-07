@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class Web::User::UserSessionsControllerTest < ActionDispatch::IntegrationTest
+class Web::User::SessionsControllerTest < ActionDispatch::IntegrationTest
   test 'shoud get new session page' do
     get new_user_sessions_path
     assert_response :success
