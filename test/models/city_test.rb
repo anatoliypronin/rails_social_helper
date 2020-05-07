@@ -8,6 +8,11 @@ class CityTest < ActiveSupport::TestCase
     assert city.save
   end
 
+  test 'Should not create city write English' do
+    city = build :city, name: 'Moscow'
+    assert_not city.save
+  end
+
   test 'Should not create city without name' do
     city = build :city, name: nil
     assert_not city.save
