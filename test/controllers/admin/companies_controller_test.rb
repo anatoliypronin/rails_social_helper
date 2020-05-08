@@ -18,8 +18,10 @@ class Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should post create company' do
-    service = create :service
-    company_attrs = attributes_for(:company, service_id: service.id)
+    company_attrs = attributes_for(:company)
+    company_attrs[:service_id] = @company.service_id
+    company_attrs[:district_id] = @company.district_id
+
     post admin_companies_path, params: { company: company_attrs }
     assert_response :redirect
 
