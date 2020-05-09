@@ -35,9 +35,10 @@ class CompanyTest < ActiveSupport::TestCase
     assert_not company.save
   end
 
-  test 'Should not create company with too long district name' do
-    company = build :company, district: 'Tooooooooooooooooooooooo looooooooooooooooooooooong diiiiiistrict naaaaammmee'
-    assert_not company.save
+  test 'Should be create company with district and district with city' do
+    company = create :company
+    assert company.district
+    assert company.district.city
   end
 
   test 'Should not create company without adress' do

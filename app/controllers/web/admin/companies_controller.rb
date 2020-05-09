@@ -11,7 +11,6 @@ class Web::Admin::CompaniesController < Web::Admin::ApplicationController
 
   def create
     @company = Company.new(company_attrs)
-
     if @company.save
       redirect_to action: :index
     else
@@ -47,6 +46,6 @@ class Web::Admin::CompaniesController < Web::Admin::ApplicationController
   private
 
   def company_attrs
-    params.require(:company).permit(:name, :city, :district, :address, :email_registration, :email_notification, :password, :phone, :service_id)
+    params.require(:company).permit(:name, :city, :district_id, :address, :email_registration, :email_notification, :password, :phone, :service_id)
   end
 end
