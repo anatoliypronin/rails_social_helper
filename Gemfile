@@ -82,5 +82,5 @@ gem 'russian', '~> 0.6.0'
 # Draper adds an object-oriented layer of presentation logic to your Rails application.
 gem 'draper'
 # Rails Observers (removed from core in Rails 4.0)
-gem 'rails-observers'
 gem 'coveralls', require: false
+gem 'rails-observers'
