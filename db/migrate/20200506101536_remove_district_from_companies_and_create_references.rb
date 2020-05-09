@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveDistrictFromCompaniesAndCreateReferences < ActiveRecord::Migration[6.0]
   def change
     remove_column :companies, :district, :string
