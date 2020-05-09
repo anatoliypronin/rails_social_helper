@@ -42,6 +42,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -63,15 +64,10 @@ gem 'valid_email2'
 # gem 'enumerize'
 # StateMachines Active Record Integration
 gem 'state_machines-activerecord'
-# RuboCop is a Ruby static code analyzer and code formatter
-gem 'rubocop', require: false
 # Haml-rails provides Haml generators for Rails 5
 gem 'haml-rails', '~> 2.0'
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
-gem 'bootstrap', '~> 4.4.1'
 gem 'erubis'
-gem 'jquery-rails'
-gem 'russian', '~> 0.6.0'
 gem 'simple_form'
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Hanami (formerly Lotus).
 gem 'bootstrap', '~> 4.4.1'

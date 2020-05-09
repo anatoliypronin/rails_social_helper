@@ -6,8 +6,6 @@ class NameValidator < ActiveModel::EachValidator
   end
 
   def validate_each(record, attribute, value)
-    unless value =~ NameValue
-      record.errors[attribute] << (options[:message] || 'invalid name')
-    end
+    record.errors[attribute] << (options[:message] || 'invalid name') unless value =~ NameValue
   end
 end
