@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Web::User::SessionsController < Web::User::ApplicationController
-  skip_before_action :authentucate_user!, only: %i[new create]
+  skip_before_action :authenticate_user!, only: %i[new create]
   def new; end
 
   def create
