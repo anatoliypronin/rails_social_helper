@@ -7,7 +7,6 @@ class Web::User::ProfilesController < Web::User::ApplicationController
 
   def update
     @user = current_user
-
     if @user.update(users_params)
       redirect_to root_path
     else

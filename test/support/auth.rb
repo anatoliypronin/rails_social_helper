@@ -7,7 +7,7 @@ module Support
     end
 
     def sign_out_as_user
-      session.delete(:user_id)
+      delete user_sessions_path
     end
   end
 end

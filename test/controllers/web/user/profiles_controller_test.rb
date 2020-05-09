@@ -29,8 +29,7 @@ class Web::User::ProfilesControllerTest < ActionDispatch::IntegrationTest
     attrs = {}
     attrs['second_name'] = generate :second_name
     put user_profile_path, params: { user: attrs }
-
+    assert_redirected_to new_user_sessions_path
     assert_not_equal @user.second_name, attrs['second_name']
-    assert_response :redirect
   end
 end
