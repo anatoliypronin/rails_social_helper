@@ -40,7 +40,7 @@ Metrics/CyclomaticComplexity:
   Max: 10
 
 Metrics/LineLength:
-  Max: 160
+  Max: 260
 
 Metrics/AbcSize:
   Max: 40
