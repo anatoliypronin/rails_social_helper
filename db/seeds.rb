@@ -6,5 +6,4 @@ if City.count.zero?
   cities_data.each do |city|
     City.create!(name: city['city'])
   end
-  puts 'Cities are seeded'
 end
