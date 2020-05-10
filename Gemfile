@@ -61,16 +61,16 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Use valid_email2 for validation email format
 gem 'valid_email2'
 # Enumerated attributes with I18n and ActiveRecord supprt
-# gem 'enumerize'
+gem 'enumerize'
 # StateMachines Active Record Integration
 gem 'state_machines-activerecord'
 # Haml-rails provides Haml generators for Rails 5
 gem 'haml-rails', '~> 2.0'
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
-gem 'erubis'
-gem 'simple_form'
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Hanami (formerly Lotus).
 gem 'bootstrap', '~> 4.4.1'
+gem 'erubis'
+gem 'simple_form'
 # jQuery! For Rails!
 gem 'jquery-rails'
 # Russian language support for Ruby and Rails, using I18n library.

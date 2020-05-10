@@ -6,7 +6,7 @@ FactoryBot.define do
   end
 
   sequence :string2, aliases: %i[email_registration email_notification email] do |n|
-    "email#{n}@factory.com"
+    "email-#{n}@factory.com"
   end
 
   sequence :phone do

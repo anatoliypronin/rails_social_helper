@@ -106,6 +106,8 @@ GEM
       activemodel-serializers-xml (>= 1.0)
       activesupport (>= 5.0)
       request_store (>= 1.0)
+    enumerize (2.3.1)
+      activesupport (>= 3.2)
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -324,6 +326,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   coveralls
   draper
+  enumerize
   erubis
   factory_bot_rails
   haml-rails (~> 2.0)
