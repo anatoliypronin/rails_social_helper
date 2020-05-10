@@ -17,7 +17,7 @@ module AuthHelper
     current_user
   end
 
-  def authentucate_user!
-    redirect_to new_admin_session_path unless user_signed_in?
+  def authenticate_user!
+    redirect_to new_user_sessions_path unless user_signed_in?
   end
 end

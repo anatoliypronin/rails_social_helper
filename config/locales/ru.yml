@@ -1,4 +1,5 @@
 ru:
+  main_page: Главная страница
   attributes:
     id: Идентификатор
     city: Город

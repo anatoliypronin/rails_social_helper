@@ -1,10 +1,22 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :users
-    resources :sessions, only: %i[new create destroy]
-    root to: 'companies#index'
-    resources :companies
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: %i[index show]
+    end
+  end
+  scope module: :web do
+    root to: 'welcome#index'
+    namespace :admin do
+      resources :users
+      root to: 'companies#index'
+      resources :companies
+    end
+
+    namespace :user do
+      resource :profile, only: %i[edit update]
+      resource :sessions, only: %i[new create destroy]
+    end
   end
 end
