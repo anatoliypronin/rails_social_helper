@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_101536) do
+ActiveRecord::Schema.define(version: 2020_05_10_114755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,9 +31,12 @@ ActiveRecord::Schema.define(version: 2020_05_06_101536) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "service_id"
-    t.bigint "district_id", null: false
+    t.bigint "district_id", default: 1, null: false
     t.index ["district_id"], name: "index_companies_on_district_id"
+    t.index ["email_notification"], name: "index_companies_on_email_notification", unique: true
+    t.index ["email_registration"], name: "index_companies_on_email_registration", unique: true
     t.index ["name"], name: "index_companies_on_name", unique: true
+    t.index ["phone"], name: "index_companies_on_phone", unique: true
     t.index ["service_id"], name: "index_companies_on_service_id"
   end
 
@@ -63,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_101536) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "city_id"
     t.index ["city_id"], name: "index_users_on_city_id"
+    t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
   add_foreign_key "companies", "districts"
