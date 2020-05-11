@@ -27,8 +27,14 @@ ActiveRecord::Schema.define(version: 2020_05_10_163633) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -81,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_05_10_163633) do
     t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
+  add_foreign_key "comments", "users"
   add_foreign_key "companies", "districts"
   add_foreign_key "companies", "services"
   add_foreign_key "districts", "cities"
