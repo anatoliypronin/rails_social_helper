@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
+  has_many :tasks, dependent: :restrict_with_exception
   belongs_to :service
   validates :name, presence: true, uniqueness: true
   validates :city, presence: true, length: { in: 2..30 }

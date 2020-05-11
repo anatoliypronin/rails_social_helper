@@ -5,6 +5,7 @@ class User < ApplicationRecord
   include UserStateMachine
 
   belongs_to :city
+  has_many :tasks, dependent: :restrict_with_exception
 
   has_secure_password
 
