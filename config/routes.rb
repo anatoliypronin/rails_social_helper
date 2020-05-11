@@ -1,5 +1,22 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: %i[index show]
+    end
+  end
+  scope module: :web do
+    root to: 'welcome#index'
+    namespace :admin do
+      resources :users
+      root to: 'companies#index'
+      resources :companies
+    end
+
+    namespace :user do
+      resource :profile, only: %i[edit update]
+      resource :sessions, only: %i[new create destroy]
+    end
+  end
 end

@@ -10,19 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_182807) do
+ActiveRecord::Schema.define(version: 2020_05_10_163633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admins", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
     t.string "city", null: false
-    t.string "district", null: false
     t.string "address", null: false
     t.string "email_registration", null: false
     t.string "email_notification", null: false
@@ -31,7 +42,29 @@ ActiveRecord::Schema.define(version: 2020_04_25_182807) do
     t.string "phone", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "service_id"
+    t.bigint "district_id", default: 1, null: false
+    t.index ["district_id"], name: "index_companies_on_district_id"
+    t.index ["email_notification"], name: "index_companies_on_email_notification", unique: true
+    t.index ["email_registration"], name: "index_companies_on_email_registration", unique: true
     t.index ["name"], name: "index_companies_on_name", unique: true
+    t.index ["phone"], name: "index_companies_on_phone", unique: true
+    t.index ["service_id"], name: "index_companies_on_service_id"
+  end
+
+  create_table "districts", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "city_id", null: false
+    t.index ["city_id"], name: "index_districts_on_city_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_service_on_name", unique: true
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -58,8 +91,12 @@ ActiveRecord::Schema.define(version: 2020_04_25_182807) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "city_id"
     t.index ["city_id"], name: "index_users_on_city_id"
+    t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
+  add_foreign_key "companies", "districts"
+  add_foreign_key "companies", "services"
+  add_foreign_key "districts", "cities"
   add_foreign_key "tasks", "companies"
   add_foreign_key "tasks", "users"
   add_foreign_key "users", "cities"

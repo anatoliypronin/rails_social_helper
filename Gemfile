@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -42,6 +42,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -60,13 +61,26 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Use valid_email2 for validation email format
 gem 'valid_email2'
 # Enumerated attributes with I18n and ActiveRecord supprt
-# gem 'enumerize'
+gem 'enumerize'
 # StateMachines Active Record Integration
 gem 'state_machines-activerecord'
-# RuboCop is a Ruby static code analyzer and code formatter
-gem 'rubocop', require: false
 # Haml-rails provides Haml generators for Rails 5
-# gem "haml-rails", "~> 2.0"
+gem 'haml-rails', '~> 2.0'
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
+# Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Hanami (formerly Lotus).
+gem 'bootstrap', '~> 4.4.1'
 gem 'erubis'
 gem 'simple_form'
+# jQuery! For Rails!
+gem 'jquery-rails'
+# Russian language support for Ruby and Rails, using I18n library.
+gem 'russian', '~> 0.6.0'
+# Draper adds an object-oriented layer of presentation logic to your Rails application.
+gem 'draper'
+# Rails Observers (removed from core in Rails 4.0)
+gem 'coveralls', require: false
+gem 'rails-observers'
+# ActiveModelSerializers brings convention over configuration to your JSON generation.
+gem 'active_model_serializers', '~> 0.10.0'
+# Pundit provides a set of helpers which guide you in leveraging regular Ruby classes and object oriented design patterns to build a simple, robust and scalable authorization system.
+gem 'pundit'

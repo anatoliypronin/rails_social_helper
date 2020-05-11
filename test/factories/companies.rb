@@ -3,12 +3,13 @@
 FactoryBot.define do
   factory :company do
     name
-    city
+    city { generate :city }
     district
     address
     email_registration
     email_notification
-    password_digest
+    password { '1234567890' }
     phone
+    service { create :service }
   end
 end
