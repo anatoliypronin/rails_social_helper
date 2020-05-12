@@ -14,6 +14,8 @@ class Web::User::ProfilesController < Web::User::ApplicationController
     end
   end
 
+  private
+
   def users_params
     params.require(:user).permit(:first_name, :second_name, :phone, :password, :email, :city_id)
   end

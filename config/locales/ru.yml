@@ -1,12 +1,27 @@
 ru:
   main_page: Главная страница
-  attributes:
-    id: Идентификатор
-    city: Город
-    control: Управление
-    homepage: Домашняя страница
-    full_name: ФИО
+  admins: Админы
 
   header:
+    admins: Админы
+    companies: Компании
+    users: Пользователи
+    homepage: Домашняя страница
     logout: Выход
-    edit: Редактировать
+    exit: Выйти
+
+  web:  
+    admin:
+      admins:
+        index:
+          delete: Удалить
+          add: Добавить
+          edit: Редактировать
+          control: Управление
+        new:
+          cancel: Отмена
+        edit:
+          cancel: Отмена
+        show:
+          back: Назад
+          edit: Редактировать

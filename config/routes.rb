@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   scope module: :web do
     root to: 'welcome#index'
     namespace :admin do
-      resources :users
       root to: 'companies#index'
+      resources :users
       resources :companies
+      resources :admins
     end
 
     namespace :user do
