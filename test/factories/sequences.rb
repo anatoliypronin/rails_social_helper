@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  sequence :string, aliases: %i[city address second_name first_name title description] do |n|
+  sequence :string, aliases: %i[city address second_name first_name title description body] do |n|
     "long string#{n}"
   end
 
