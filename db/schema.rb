@@ -73,6 +73,19 @@ ActiveRecord::Schema.define(version: 2020_05_10_163633) do
     t.index ["name"], name: "index_service_on_name", unique: true
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "company_id", null: false
+    t.text "description", null: false
+    t.string "title", null: false
+    t.string "address", null: false
+    t.string "state", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_tasks_on_company_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "second_name", null: false
@@ -91,5 +104,7 @@ ActiveRecord::Schema.define(version: 2020_05_10_163633) do
   add_foreign_key "companies", "districts"
   add_foreign_key "companies", "services"
   add_foreign_key "districts", "cities"
+  add_foreign_key "tasks", "companies"
+  add_foreign_key "tasks", "users"
   add_foreign_key "users", "cities"
 end
