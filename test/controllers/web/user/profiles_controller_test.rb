@@ -32,4 +32,13 @@ class Web::User::ProfilesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_sessions_path
     assert_not_equal @user.second_name, attrs['second_name']
   end
+
+  test 'shoud not put update user because nit valid email' do
+    attrs = {}
+    attrs[:email] = 'bad_email'
+    p @user
+    put user_profile_path, params: { user: attrs }
+    p @user
+    assert_response :success
+  end
 end
