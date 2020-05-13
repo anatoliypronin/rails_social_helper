@@ -1,16 +1,16 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-  test "should create CommentTest" do
-    tag = build :tag
-    tag.save
-    created_tag = Tag.last
-    assert created_tag
+  test "should create Comment" do
+    comment = build :comment
+    comment.save
+    created_comment = Comment.last
+    assert created_comment
   end
-  test "should not create CommentTest with empty body" do
-    tag = build :tag, title: nil
-    tag.save
-    created_tag = Tag.last
-    assert_nil created_tag
+  test "should not create Comment with empty body" do
+    comment = build :comment, body: nil
+    comment.save
+    created_comment = Comment.last
+    assert_nil created_comment
   end
 end

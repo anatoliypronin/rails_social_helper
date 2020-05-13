@@ -1,3 +1,4 @@
 class Comment < ApplicationRecord
-  validates :body, presence: true, length: { in: 2..255 }, body: true
+  validates :body, presence: true
+  has_many :like_comments, through: :comment_likes
 end
