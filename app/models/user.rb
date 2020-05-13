@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   belongs_to :city
   has_many :tasks, dependent: :restrict_with_exception
+  has_many :comments, through: :comment_users
 
   has_secure_password
 

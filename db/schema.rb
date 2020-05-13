@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_201040) do
+ActiveRecord::Schema.define(version: 2020_05_13_203802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2020_05_13_201040) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["comment_id"], name: "index_comment_likes_on_comment_id"
     t.index ["like_comment_id"], name: "index_comment_likes_on_like_comment_id"
+  end
+
+  create_table "comment_users", force: :cascade do |t|
+    t.bigint "comment_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id", "user_id"], name: "index_comment_users_on_comment_id_and_user_id", unique: true
+    t.index ["comment_id"], name: "index_comment_users_on_comment_id"
+    t.index ["user_id"], name: "index_comment_users_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -127,6 +137,8 @@ ActiveRecord::Schema.define(version: 2020_05_13_201040) do
 
   add_foreign_key "comment_likes", "comments"
   add_foreign_key "comment_likes", "like_comments"
+  add_foreign_key "comment_users", "comments"
+  add_foreign_key "comment_users", "users"
   add_foreign_key "companies", "districts"
   add_foreign_key "companies", "services"
   add_foreign_key "districts", "cities"
