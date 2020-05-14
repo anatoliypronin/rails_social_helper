@@ -5,6 +5,8 @@ require 'test_helper'
 class Web::Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @company = create :company
+    admin = create :admin
+    sign_in_as_admin(admin)
   end
 
   test 'should get index companies' do
