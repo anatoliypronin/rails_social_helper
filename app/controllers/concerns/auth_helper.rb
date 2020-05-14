@@ -20,4 +20,24 @@ module AuthHelper
   def authenticate_user!
     redirect_to new_user_sessions_path unless user_signed_in?
   end
+
+  def admin_sign_in(admin)
+    session[:admin_id] = admin.id
+  end
+
+  def admin_sign_out
+    session.delete(:admin_id)
+  end
+
+  def current_admin
+    Admin.find_by(id: session[:admin_id])
+  end
+
+  def admin_signed_in?
+    current_admin
+  end
+
+  def authenticate_admin!
+    redirect_to new_admin_sessions_path unless admin_signed_in?
+  end
 end

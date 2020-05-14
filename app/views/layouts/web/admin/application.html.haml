@@ -9,5 +9,6 @@
     = javascript_include_tag 'admin_application'
   %body
     .container
-      = render 'layouts/web/admin/header'
+      - if admin_signed_in?
+        = render 'layouts/web/admin/header'
       = yield

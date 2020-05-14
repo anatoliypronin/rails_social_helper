@@ -7,5 +7,5 @@
       = link_to t('header.users'), admin_users_path, class: 'nav-item nav-link'
       %ul.navbar-num
   %div
-    %div= link_to t('header.logout'), class: 'btn btn-outline-secondary btn-sm'
-    -# %div= link_to t('header.logout'), admin_session_path, method: :delete, class: 'btn btn-outline-secondary btn-sm'
+    -# %div{style: 'color: white'}= current_admin.email
+    %div= link_to t('header.logout'), admin_sessions_path, method: :delete, class: 'btn btn-outline-secondary btn-sm'

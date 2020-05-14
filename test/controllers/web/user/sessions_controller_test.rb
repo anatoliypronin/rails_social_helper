@@ -28,7 +28,7 @@ class Web::User::SessionsControllerTest < ActionDispatch::IntegrationTest
     user = create :user
     sign_in_as_user(user)
 
-    delete user_sessions_path
+    sign_out_as_user
     assert_response :redirect
 
     assert_nil session[:user_id]
