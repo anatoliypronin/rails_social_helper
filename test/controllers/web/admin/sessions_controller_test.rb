@@ -28,7 +28,7 @@ class Web::Admin::SessionsControllerTest < ActionDispatch::IntegrationTest
     admin = create :admin
     sign_in_as_admin(admin)
 
-    delete admin_sessions_path
+    sign_out_as_admin
     assert_response :redirect
 
     assert_nil session[:admin_id]
