@@ -17,7 +17,7 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
+    @task = Task.find(params[:task_id])
   end
 
   def edit
@@ -67,6 +67,6 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
   private
 
   def task_attrs
-    params.require(:task).permit(:description, :title, :address, :state)
+    params.require(:task).permit(:description, :title, :address, :state, :user_id, :company_id)
   end
 end
