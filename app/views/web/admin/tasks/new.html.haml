@@ -1,0 +1,6 @@
+= simple_form_for @task, url: admin_tasks_path do |f|
+    = f.input :title
+    = f.association :company, as: :check_boxes
+    = f.input :description
+    = f.input :address
+    = f.button :submit, class: 'btn btn-info'

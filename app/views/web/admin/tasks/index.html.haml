@@ -1,0 +1,23 @@
+= link_to t('.add_task'), new_admin_task_path, class: 'btn btn-info'
+
+%table.table.table-hover
+  %tr
+    %th= han(:task,:id)
+    %th= han(:task,:title)
+    %th= han(:task,:description)
+    %th= han(:task,:company)
+    %th= han(:task,:state)
+    %th= han(:task,:created_at)
+    %th= t('.control')
+  - @tasks.each do |task|
+    %tr
+      %td= link_to task.id, admin_task_path(task.id), target: :_blank
+      %td= task.title
+      %td= task.description
+      %td= task.company.title
+      %td= hsn(:task, 'state', task.state)
+      %td= task.created_at
+      %td
+        - task.state_events.each do |event|
+          %br
+          = button_to hsen(:survey, 'state', event), {:action => event.to_sym, :id => survey.id}, method: :put, class: 'btn btn-info'

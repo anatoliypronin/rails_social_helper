@@ -12,6 +12,12 @@ Rails.application.routes.draw do
       resources :users
       root to: 'companies#index'
       resources :companies
+      resource :tasks do
+        member do
+          put :del
+          put :restore
+        end
+      end
     end
 
     namespace :user do
