@@ -14,10 +14,10 @@
       %td= link_to task.id, admin_task_path(task.id), target: :_blank
       %td= task.title
       %td= task.description
-      %td= task.company.title
+      %td= task.company.name
       %td= hsn(:task, 'state', task.state)
       %td= task.created_at
       %td
         - task.state_events.each do |event|
           %br
-          = button_to hsen(:survey, 'state', event), {:action => event.to_sym, :id => survey.id}, method: :put, class: 'btn btn-info'
+          = button_to hsen(:task, 'state', event), {:action => event.to_sym, :id => task.id}, method: :put, class: 'btn btn-info'
