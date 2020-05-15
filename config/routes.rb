@@ -13,10 +13,9 @@ Rails.application.routes.draw do
       root to: 'companies#index'
       resources :users
       resources :companies
-
+      resources :tasks
       resources :admins
     end
->>>>>>> develop
 
     namespace :user do
       resource :profile, only: %i[edit update]

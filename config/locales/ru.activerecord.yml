@@ -35,7 +35,7 @@ ru:
       admin:
         one: Админ
         other: Админы
-      
+
     attributes:
       user:
         first_name: Имя

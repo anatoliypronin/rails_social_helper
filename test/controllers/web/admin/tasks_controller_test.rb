@@ -3,6 +3,8 @@ require 'test_helper'
 class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @task = create :task
+    admin = create :admin
+    sign_in_as_admin(admin)
   end
 
   test 'should get index tasks' do
