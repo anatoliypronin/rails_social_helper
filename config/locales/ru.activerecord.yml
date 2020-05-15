@@ -1,0 +1,56 @@
+ru:
+  attributes:
+    id: Идентификатор
+    email: E-mail
+    state: Состояние
+    created_at: Дата создания
+    updated_at: Дата обновления
+
+  activerecord:
+    state_machines:
+      company:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+          events:
+            del: Удалить
+            restore: Восстановить
+      user:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+          events:
+            del: Удалить
+            restore: Восстановить
+
+    models:
+      user:
+        one: Пользователь
+        other: Пользователи
+      company:
+        one: Компания
+        other: Компании
+      admin:
+        one: Админ
+        other: Админы
+      
+    attributes:
+      user:
+        first_name: Имя
+        second_name: Фамилия
+        phone: Номер телефона
+        password: Пароль
+      company:
+        name: Имя
+        city: Город
+        district: Район
+        address: Адрес
+        email_registration: E-mail для регистрации
+        email_notification: E-mail для нотификации
+        password: Пароль
+        phone: Номер телефона
+      admin:
+        name: Имя
+        role: Роль

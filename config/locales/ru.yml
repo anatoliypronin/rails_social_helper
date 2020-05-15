@@ -1,44 +1,29 @@
 ru:
   main_page: Главная страница
-  attributes:
-    id: Идентификатор
 
-    control: Управление
-    homepage: Домашняя страница
-    full_name: ФИО
-    name: Наименование
-    city: Город
-    district: Район
-    address: Адрес
-    email: E-mail
-    phone: Номер телефона
-    state: Статус
-    email_registration: E-mail для регистрации
-    email_notification: E-mail для нотификации
-    created_at: Дата создания
-    updated_at: Последние редактирование
+  admins: Админы
+
   header:
+    admins: Админы
+    companies: Компании
+    users: Пользователи
     homepage: Домашняя страница
     logout: Выход
-    edit: Редактировать
+    exit: Выйти
 
-
-
-  activerecord:
-    state_machines:
-      company:
-        state:
-          states:
-            active: Активный
-            deleted: Удаленный
-          events:
-            del: Удалить
-            restore: Восстановить
-      user:
-        state:
-          states:
-            active: Активный
-            deleted: Удаленный
-          events:
-            del: Удалить
-            restore: Восстановить
+  web:
+    admin:
+      admins:
+        index:
+          delete: Удалить
+          add: Добавить
+          edit: Редактировать
+          control: Управление
+        new:
+          cancel: Отмена
+        edit:
+          cancel: Отмена
+        show:
+          back: Назад
+          edit: Редактировать
+>>>>>>> develop

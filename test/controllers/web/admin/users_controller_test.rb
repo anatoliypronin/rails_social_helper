@@ -5,6 +5,8 @@ require 'test_helper'
 class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = create :user
+    admin = create :admin
+    sign_in_as_admin(admin)
   end
 
   test 'shoud get index users' do
