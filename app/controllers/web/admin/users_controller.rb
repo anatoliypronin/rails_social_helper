@@ -6,7 +6,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.new.decorate
   end
 
   def create

@@ -64,7 +64,10 @@ class Web::Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should state del company' do
+    p @company
     put admin_company_del_path(@company.id)
+    p @company
+
     assert_response :redirect
     @company.reload
     assert_equal 'deleted', @company.state
