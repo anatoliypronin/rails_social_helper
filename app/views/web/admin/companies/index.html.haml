@@ -1,24 +1,23 @@
-%table.table.table-hover
-  %tr.table-active
-    %th= t('attributes.id')
-    %th= Company.human_attribute_name('name')
-    %th= Company.human_attribute_name('city')
-    %th= Company.human_attribute_name('district')
-    %th= Company.human_attribute_name('address')
-    %th= Company.human_attribute_name('email_registration')
-    %th= Company.human_attribute_name('email_notification')
-    %th= Company.human_attribute_name('phone')
-    %th= Company.human_attribute_name('state')
-    %th= t('attributes.control')
+%a.pull-right
+  %h1= t('companies')
+  %table.table.table-striped.table-hover
+    %th= Company.human_attribute_name(:id)
+    %th= Company.human_attribute_name(:name)
+    %th= Company.human_attribute_name(:full_address)
+    %th= Company.human_attribute_name(:email_registration)
+    %th= Company.human_attribute_name(:email_notification)
+    %th= Company.human_attribute_name(:phone)
+    %th= Company.human_attribute_name(:state)
+    %th{:colspan => "2"}= t('.control')
   - @companies.each do |company|
     %tr
       %td= link_to company.id, admin_company_path(company.id), target: :_blank
       %td= company.name
-      %td= company.city
-      %td= company.district
-      %td= company.address
+      %td= company.full_address
       %td= company.email_registration
       %td= company.email_registration
       %td= company.phone
       %td= company.human_state_name
-      %td= link_to 'Редактировать', edit_admin_company_path(company.id)    
+      %td= link_to t('.edit'), edit_admin_company_path(company.id), class: 'btn btn-info btn-sm'
+      %td= link_to t('.delete'), admin_company_path(company.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'   
+%td= link_to t('.add'), new_admin_company_path, class: 'btn btn-outline-secondary'
