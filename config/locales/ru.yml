@@ -29,6 +29,7 @@ ru:
       companies:
         index:
           delete: Удалить
+          restore: Восстановить
           add: Добавить
           edit: Редактировать
           control: Управление

@@ -2,7 +2,7 @@
 
 class Web::Admin::CompaniesController < Web::Admin::ApplicationController
   def index
-    @companies = Company.all
+    @companies = Company.all.decorate
   end
 
   def new
@@ -36,9 +36,16 @@ class Web::Admin::CompaniesController < Web::Admin::ApplicationController
     end
   end
 
-  def destroy
-    company = Company.find(params[:id])
-    company.destroy
+  def del
+    company = Company.find(params[:company_id])
+    company.del!
+
+    redirect_to action: :index
+  end
+
+  def restore
+    company = Company.find(params[:company_id])
+    company.restore!
 
     redirect_to action: :index
   end

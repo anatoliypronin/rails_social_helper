@@ -63,10 +63,19 @@ class Web::Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
     assert_equal attrs[:name], @company.name
   end
 
-  test 'should delete destroy сompany' do
-    delete admin_company_path(@company.id)
+  test 'should state del company' do
+    put admin_company_del_path(@company.id)
+    assert_response :redirect
+    @company.reload
+    assert_equal 'deleted', @company.state
+  end
+
+  test 'should state active company' do
+    @company.del!
+    put admin_company_restore_path(@company.id)
     assert_response :redirect
 
-    assert_not Company.exists?(@company.id)
+    @company.reload
+    assert_equal 'active', @company.state
   end
 end

@@ -1,6 +1,6 @@
 class AdminDecorator < ApplicationDecorator
   def full_address
-    object.city + ' ' + object.district + ' ' object.address
+    object.city + ' ' + object.district + ' ' + object.address
   end
     
   def created_at
