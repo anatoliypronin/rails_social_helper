@@ -12,13 +12,9 @@ Rails.application.routes.draw do
       resources :users
       root to: 'companies#index'
       resources :companies
-      resource :tasks do
-        member do
-          put :del
-          put :restore
-        end
+      resources :tasks
       end
-    end
+
 
     namespace :user do
       resource :profile, only: %i[edit update]

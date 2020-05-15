@@ -1,6 +1,6 @@
-class Web::Admin::TasksController < Web::Admin::ApplicationController
+class  Web::Admin::TasksController < Web::Admin::ApplicationController
   def index
-    @task = Task.all
+    @tasks = Task.all
   end
 
   def new
@@ -17,7 +17,7 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
   end
 
   def show
-    @task = Task.find(params[:task_id])
+    @task = Task.find(params[:id])
   end
 
   def edit
@@ -28,7 +28,7 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
     @task = Task.find(params[:id])
     task_attrs = send("task_attrs")
     if @task.update(task_attrs)
-      redirect_to action: :index
+      redirect_to admin_tasks_path
     else
       render action: :edit
     end

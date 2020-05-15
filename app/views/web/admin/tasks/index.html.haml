@@ -2,22 +2,21 @@
 
 %table.table.table-hover
   %tr
-    %th= han(:task,:id)
-    %th= han(:task,:title)
-    %th= han(:task,:description)
-    %th= han(:task,:company)
-    %th= han(:task,:state)
-    %th= han(:task,:created_at)
-    %th= t('.control')
+    %th= t('attributes.id')
+    %th= Task.human_attribute_name('title')
+    %th= Task.human_attribute_name('user')
+    %th= Task.human_attribute_name('company')
+    %th= Task.human_attribute_name('description')
+    %th= Task.human_attribute_name('address')
+    %th= Task.human_attribute_name('state')
+    %th= t('attributes.control')
   - @tasks.each do |task|
     %tr
       %td= link_to task.id, admin_task_path(task.id), target: :_blank
       %td= task.title
-      %td= task.description
+      %td= task.user.first_name
       %td= task.company.name
-      %td= hsn(:task, 'state', task.state)
-      %td= task.created_at
-      %td
-        - task.state_events.each do |event|
-          %br
-          = button_to hsen(:task, 'state', event), {:action => event.to_sym, :id => task.id}, method: :put, class: 'btn btn-info'
+      %td= task.description
+      %td= task.address
+      %td= task.human_state_name
+      %td= link_to 'Редактировать', edit_admin_task_path(task.id)
