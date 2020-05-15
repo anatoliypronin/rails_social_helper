@@ -1,6 +1,7 @@
 ru:
   main_page: Главная страница
   admins: Админы
+  companies: Компании
 
   header:
     admins: Админы
@@ -13,6 +14,32 @@ ru:
   web:  
     admin:
       admins:
+        index:
+          delete: Удалить
+          add: Добавить
+          edit: Редактировать
+          control: Управление
+        new:
+          cancel: Отмена
+        edit:
+          cancel: Отмена
+        show:
+          back: Назад
+          edit: Редактировать
+      companies:
+        index:
+          delete: Удалить
+          add: Добавить
+          edit: Редактировать
+          control: Управление
+        new:
+          cancel: Отмена
+        edit:
+          cancel: Отмена
+        show:
+          back: Назад
+          edit: Редактировать
+      users:
         index:
           delete: Удалить
           add: Добавить
