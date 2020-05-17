@@ -30,6 +30,17 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_equal user_attrs[:phone], user.phone
   end
 
+  test 'shoud not post create user bad password' do
+    city = create :city
+
+    user_attrs = attributes_for(:user, city_id: city.id, password: 'bad')
+    post admin_users_path, params: { user: user_attrs }
+    assert_response :success
+
+    user = User.find_by(email: user_attrs[:email])
+    assert_nil user
+  end
+
   test 'shoud get show user page' do
     get admin_user_path(@user.id)
     assert_response :success
