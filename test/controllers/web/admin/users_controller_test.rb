@@ -51,10 +51,20 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_equal @user.second_name, attrs['second_name']
   end
 
-  test 'shoud destroy user' do
-    delete admin_user_path(@user.id)
+  test 'should state del user' do
+    @user.del!
+    put admin_user_del_path(@user.id)
+
+    assert_response :redirect
+    @user.reload
+    assert_equal 'deleted', @user.state
+  end
+
+  test 'should state active user' do
+    put admin_user_restore_path(@user.id)
     assert_response :redirect
 
-    assert_not User.exists?(@user.id)
+    @user.reload
+    assert_equal 'active', @user.state
   end
 end

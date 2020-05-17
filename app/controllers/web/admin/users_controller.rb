@@ -36,9 +36,17 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     end
   end
 
-  def destroy
-    user = User.find(params[:id])
-    user.destroy
+  def del
+    user = User.find(params[:user_id])
+    user.del
+
+    redirect_to action: :index
+  end
+
+  def restore
+    user = User.find(params[:user_id])
+
+    user.restore
 
     redirect_to action: :index
   end

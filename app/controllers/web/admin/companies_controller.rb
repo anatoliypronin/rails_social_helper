@@ -38,8 +38,7 @@ class Web::Admin::CompaniesController < Web::Admin::ApplicationController
 
   def del
     company = Company.find(params[:company_id])
-    company.password = '1234567890'
-    company.del!
+    company.del
 
     redirect_to action: :index
   end
@@ -47,7 +46,7 @@ class Web::Admin::CompaniesController < Web::Admin::ApplicationController
   def restore
     company = Company.find(params[:company_id])
 
-    company.restore!
+    company.restore
 
     redirect_to action: :index
   end

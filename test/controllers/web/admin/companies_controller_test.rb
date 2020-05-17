@@ -64,9 +64,8 @@ class Web::Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should state del company' do
-    p @company
+    @company.del!
     put admin_company_del_path(@company.id)
-    p @company
 
     assert_response :redirect
     @company.reload
@@ -74,7 +73,6 @@ class Web::Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should state active company' do
-    @company.del!
     put admin_company_restore_path(@company.id)
     assert_response :redirect
 
