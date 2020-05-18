@@ -23,7 +23,6 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
     task_attrs[:city_id] = @task.city_id
     task_attrs[:district_id] = @task.district_id
 
-
     post admin_tasks_path, params: { task: task_attrs }
     assert_response :redirect
 
@@ -64,18 +63,18 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should state del task' do
-   put admin_task_del_path(@task.id)
-   assert_response :redirect
-   @task.reload
-   assert_equal 'deleted', @task.state
+    put admin_task_del_path(@task.id)
+    assert_response :redirect
+    @task.reload
+    assert_equal 'deleted', @task.state
   end
 
   test 'should state active task' do
-   @task.del!
-   put admin_task_restore_path(@task.id)
-   assert_response :redirect
+    @task.del!
+    put admin_task_restore_path(@task.id)
+    assert_response :redirect
 
-   @task.reload
-   assert_equal 'active', @task.state
- end
+    @task.reload
+    assert_equal 'active', @task.state
+  end
 end
