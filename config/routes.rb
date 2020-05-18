@@ -13,7 +13,10 @@ Rails.application.routes.draw do
       root to: 'companies#index'
       resources :users
       resources :companies
-      resources :tasks
+      resources :tasks do
+        put 'restore'
+        put 'del'
+      end
       resources :admins
       resources :districts
     end

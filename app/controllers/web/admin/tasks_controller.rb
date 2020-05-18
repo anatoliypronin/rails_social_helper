@@ -1,6 +1,6 @@
 class Web::Admin::TasksController < Web::Admin::ApplicationController
   def index
-    @tasks = Task.all
+    @tasks = Task.all.decorate
   end
 
   def new
@@ -34,20 +34,14 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
     end
   end
 
-  def destroy
-    task = Task.find(params[:id])
-    task.destroy
-    redirect_to action: :index
-  end
-
   def del
-    task = Task.find(params[:id])
+    task = Task.find(params[:task_id])
     task.del
     redirect_to action: :index
   end
 
   def restore
-    task = Task.find(params[:id])
+    task = Task.find(params[:task_id])
     task.restore
     redirect_to action: :index
   end
@@ -67,6 +61,6 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
   private
 
   def task_attrs
-    params.require(:task).permit(:description, :title, :address, :state, :user_id, :city_id, :district_id)
+    params.require(:task).permit(:description, :title, :address, :state, :user_id, :city_id, :district_id, :state)
   end
 end
