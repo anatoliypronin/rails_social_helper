@@ -1,6 +1,6 @@
 class Web::Admin::TasksController < Web::Admin::ApplicationController
   def index
-    @tasks = Task.all.decorate
+    @tasks = Task.all
   end
 
   def new

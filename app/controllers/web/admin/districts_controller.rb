@@ -16,10 +16,6 @@ class Web::Admin::DistrictsController < Web::Admin::ApplicationController
     end
   end
 
-  def show
-    @district = District.find(params[:id])
-  end
-
   def edit
     @district = District.find(params[:id])
   end

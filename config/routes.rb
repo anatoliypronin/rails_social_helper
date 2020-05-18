@@ -16,7 +16,7 @@ Rails.application.routes.draw do
         put 'del'
       end
       resources :admins
-      resources :districts
+      resources :districts, onle: %i[index new create edit update destroy]
     end
 
     namespace :user do

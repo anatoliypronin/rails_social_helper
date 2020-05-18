@@ -35,11 +35,6 @@ class Web::Admin::DistrictsControllerTest < ActionDispatch::IntegrationTest
     assert_nil district
   end
 
-  test 'should get show district page' do
-    get admin_district_path(@district.id)
-    assert_response :success
-  end
-
   test 'should get edit district page' do
     get edit_admin_district_path(@district.id)
     assert_response :success
