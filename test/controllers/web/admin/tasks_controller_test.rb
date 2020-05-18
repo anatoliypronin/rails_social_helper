@@ -63,10 +63,19 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
     assert_equal attrs[:title], @task.title
   end
 
-  test 'should delete destroy task' do
-    delete admin_task_path(@task.id)
-    assert_response :redirect
+  test 'should state del task' do
+   put admin_task_del_path(@task.id)
+   assert_response :redirect
+   @task.reload
+   assert_equal 'deleted', @task.state
+ end
 
-    assert_not Task.exists?(@task.id)
-  end
+ test 'should state active task' do
+   @task.del!
+   put admin_task_restore_path(@task.id)
+   assert_response :redirect
+
+   @task.reload
+   assert_equal 'active', @task.state
+ end
 end
