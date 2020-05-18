@@ -68,9 +68,9 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
    assert_response :redirect
    @task.reload
    assert_equal 'deleted', @task.state
- end
+  end
 
- test 'should state active task' do
+  test 'should state active task' do
    @task.del!
    put admin_task_restore_path(@task.id)
    assert_response :redirect
