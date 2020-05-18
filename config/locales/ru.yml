@@ -1,6 +1,8 @@
 ru:
   main_page: Главная страница
   admins: Админы
+  companies: Компании
+  are_you_sure?: Вы уверены?
 
   header:
     admins: Админы
@@ -16,6 +18,34 @@ ru:
         index:
           delete: Удалить
           add: Добавить
+          edit: Редактировать
+          control: Управление
+        new:
+          cancel: Отмена
+        edit:
+          cancel: Отмена
+        show:
+          back: Назад
+          edit: Редактировать
+      companies:
+        index:
+          delete: Удалить
+          restore: Восстановить
+          add: Добавить
+          edit: Редактировать
+          control: Управление
+        new:
+          cancel: Отмена
+        edit:
+          cancel: Отмена
+        show:
+          back: Назад
+          edit: Редактировать
+      users:
+        index:
+          delete: Удалить
+          add: Добавить
+          restore: Восстановить
           edit: Редактировать
           control: Управление
         new:

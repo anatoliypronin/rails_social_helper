@@ -30,6 +30,17 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_equal user_attrs[:phone], user.phone
   end
 
+  test 'shoud not post create user bad password' do
+    city = create :city
+
+    user_attrs = attributes_for(:user, city_id: city.id, password: 'bad')
+    post admin_users_path, params: { user: user_attrs }
+    assert_response :success
+
+    user = User.find_by(email: user_attrs[:email])
+    assert_nil user
+  end
+
   test 'shoud get show user page' do
     get admin_user_path(@user.id)
     assert_response :success
@@ -51,10 +62,20 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_equal @user.second_name, attrs['second_name']
   end
 
-  test 'shoud destroy user' do
-    delete admin_user_path(@user.id)
+  test 'should state del user' do
+    @user.del!
+    put admin_user_del_path(@user.id)
+
+    assert_response :redirect
+    @user.reload
+    assert_equal 'deleted', @user.state
+  end
+
+  test 'should state active user' do
+    put admin_user_restore_path(@user.id)
     assert_response :redirect
 
-    assert_not User.exists?(@user.id)
+    @user.reload
+    assert_equal 'active', @user.state
   end
 end
