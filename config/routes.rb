@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :companies
       resources :tasks
       resources :admins
+      resources :districts
     end
 
     namespace :user do

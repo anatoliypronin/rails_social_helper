@@ -1,0 +1,4 @@
+= simple_form_for @district, url: admin_districts_path do |f|
+    = f.input :name
+    = f.association :city
+    = f.button :submit, class: 'btn btn-info'
