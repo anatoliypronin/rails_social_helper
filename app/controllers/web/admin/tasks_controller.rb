@@ -1,4 +1,4 @@
-class  Web::Admin::TasksController < Web::Admin::ApplicationController
+class Web::Admin::TasksController < Web::Admin::ApplicationController
   def index
     @tasks = Task.all
   end
@@ -67,6 +67,6 @@ class  Web::Admin::TasksController < Web::Admin::ApplicationController
   private
 
   def task_attrs
-    params.require(:task).permit(:description, :title, :address, :state, :user_id, :company_id)
+    params.require(:task).permit(:description, :title, :address, :state, :user_id, :city_id, :district_id)
   end
 end

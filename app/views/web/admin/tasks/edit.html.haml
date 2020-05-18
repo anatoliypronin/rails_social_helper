@@ -1,6 +1,5 @@
 = simple_form_for @task, url: admin_task_path(@task.id) do |f|
   = f.association :user
-  = f.association :company
   = f.input :title
   = f.input :description
   = f.input :address

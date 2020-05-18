@@ -17,10 +17,12 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should post create company' do
+  test 'should post create city and district' do
     task_attrs = attributes_for(:task)
     task_attrs[:user_id] = @task.user_id
-    task_attrs[:company_id] = @task.company_id
+    task_attrs[:city_id] = @task.city_id
+    task_attrs[:district_id] = @task.district_id
+
 
     post admin_tasks_path, params: { task: task_attrs }
     assert_response :redirect

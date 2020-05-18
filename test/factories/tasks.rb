@@ -4,6 +4,7 @@ FactoryBot.define do
     title
     address
     user
-    company
+    city
+    district
   end
 end

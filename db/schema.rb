@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_203802) do
+ActiveRecord::Schema.define(version: 2020_05_18_105816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_203802) do
     t.bigint "like_comment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id", "like_comment_id"], name: "index_comment_likes_on_comment_id_and_like_comment_id", unique: true
     t.index ["comment_id"], name: "index_comment_likes_on_comment_id"
     t.index ["like_comment_id"], name: "index_comment_likes_on_like_comment_id"
   end
@@ -110,14 +111,18 @@ ActiveRecord::Schema.define(version: 2020_05_13_203802) do
 
   create_table "tasks", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "company_id", null: false
     t.text "description", null: false
     t.string "title", null: false
     t.string "address", null: false
     t.string "state", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id"
+    t.bigint "city_id", null: false
+    t.bigint "district_id", null: false
+    t.index ["city_id"], name: "index_tasks_on_city_id"
     t.index ["company_id"], name: "index_tasks_on_company_id"
+    t.index ["district_id"], name: "index_tasks_on_district_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -144,7 +149,8 @@ ActiveRecord::Schema.define(version: 2020_05_13_203802) do
   add_foreign_key "districts", "cities"
   add_foreign_key "like_comment_users", "like_comments"
   add_foreign_key "like_comment_users", "users"
-  add_foreign_key "tasks", "companies"
+  add_foreign_key "tasks", "cities"
+  add_foreign_key "tasks", "districts"
   add_foreign_key "tasks", "users"
   add_foreign_key "users", "cities"
 end

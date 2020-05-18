@@ -1,7 +1,5 @@
 = simple_form_for @task, url: admin_tasks_path do |f|
     = f.input :title
-    = f.input :company_id, collection: @companies, as: :grouped_select, group_method: :name
-    = f.association :company, as: :check_boxes
     = f.input :description
     = f.input :address
     = f.button :submit, class: 'btn btn-info'
