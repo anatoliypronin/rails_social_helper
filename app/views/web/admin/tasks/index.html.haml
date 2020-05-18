@@ -11,15 +11,18 @@
     %th= Task.human_attribute_name('district')
     %th= Task.human_attribute_name('address')
     %th= Task.human_attribute_name('state')
+    %th= Task.human_attribute_name('created_at')
     %th= t('attributes.control')
   - @tasks.each do |task|
     %tr
       %td= link_to task.id, admin_task_path(task.id), target: :_blank
       %td= task.title
-      %td= task.user
+      %td= task.user.first_name
       %td= task.description
       %td= task.city.name
       %td= task.district.name
       %td= task.address
       %td= task.human_state_name
+      %td= task.created_at
       %td= link_to 'Редактировать', edit_admin_task_path(task.id)
+      %td
