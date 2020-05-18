@@ -29,4 +29,4 @@
         %td= link_to t('.del'), admin_task_del_path(task.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger btn-sm'
       -if task.can_restore?
         %td= link_to t('.restore'), admin_task_restore_path(task.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-success btn-sm'
-      %td= link_to t('.add'), new_admin_task_path, class: 'btn btn-outline-secondary'
+    

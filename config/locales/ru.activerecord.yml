@@ -10,6 +10,7 @@ ru:
 
   activerecord:
     state_machines:
+      web:
       company:
         state:
           states:
@@ -26,6 +27,15 @@ ru:
           events:
             del: Удалить
             restore: Восстановить
+      task:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+          events:
+            del: Удалить
+            restore: Восстановить
+
 
     models:
       user:
@@ -37,6 +47,12 @@ ru:
       admin:
         one: Админ
         other: Админы
+      task:
+        one: Задача
+        other: Задачи
+      district:
+        one: Район
+        other: Районы
 
     attributes:
       user:
@@ -57,3 +73,15 @@ ru:
       admin:
         name: Имя
         role: Роль
+      task:
+        title: Наименование
+        user: Пользователь
+        description: Описание
+        city: Город
+        district:	Район
+        address: Адрес
+        control: Управление
+      district:
+        name: Наименование
+        city: Город
+        control: Управление

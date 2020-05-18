@@ -9,6 +9,8 @@ ru:
     admins: Админы
     companies: Компании
     users: Пользователи
+    tasks: Задачи
+    districts: Районы
     homepage: Домашняя страница
     logout: Выход
     exit: Выйти
@@ -56,3 +58,14 @@ ru:
         show:
           back: Назад
           edit: Редактировать
+      tasks:
+        index:
+          del: Удалить
+          add: Добавить
+          restore: Восстановить
+          edit: Редактировать
+          control: Управление
+          add_task:  Добавить задачу
+      districts:
+        index:
+          add_district: Добавить Район
