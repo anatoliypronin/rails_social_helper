@@ -1,27 +1,25 @@
-= link_to t('.add_users'), new_admin_user_path, class: 'btn btn-info'
-= link_to t('.companies'), admin_companies_path, class: 'btn btn-info'
-= link_to t('.task'), admin_tasks_path, class: 'btn btn-info'
-= link_to t('.district'), admin_districts_path, class: 'btn btn-info'
-
-%table.table.table-hover
+%a.pull-right
+  %h1= t('users')
+%table.table.table-striped.table-hover
   %tr
-    %th= t('attributes.id')
-    %th= t('attributes.full_name')
-    %th= User.human_attribute_name('phone')
-    %th= User.human_attribute_name('email')
-    %th= t('attributes.city')
-    %th= User.human_attribute_name('state')
-    %th= User.human_attribute_name('created_at')
-    %th= User.human_attribute_name('updated_at')
-    %th= t('attributes.control')
+    %th= User.human_attribute_name(:id)
+    %th= User.human_attribute_name(:full_name)
+    %th= User.human_attribute_name(:phone)
+    %th= User.human_attribute_name(:email)
+    %th= User.human_attribute_name(:city)
+    %th= User.human_attribute_name(:state)
+    %th{:colspan => "2"}= t('.control')
   - @users.each do |user|
     %tr
       %td= link_to user.id, admin_user_path(user.id), target: :_blank
       %td= user.full_name
       %td= user.phone
       %td= user.email
-      %td= user.human_state_name
       %td= user.city.name
-      %td= user.created_at
-      %td= user.updated_at
-      %td= link_to t('attributes.edit'), edit_admin_user_path(user.id)
+      %td= user.human_state_name
+      %td= link_to t('.edit'), edit_admin_user_path(user.id), class: 'btn btn-info btn-sm'
+      -if user.can_del?
+        %td= link_to t('.delete'), admin_user_del_path(user.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger btn-sm'
+      -if user.can_restore?
+        %td= link_to t('.restore'), admin_user_restore_path(user.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-success btn-sm'
+%td= link_to t('.add'), new_admin_user_path, class: 'btn btn-outline-secondary'

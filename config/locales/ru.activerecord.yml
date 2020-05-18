@@ -5,6 +5,8 @@ ru:
     state: Состояние
     created_at: Дата создания
     updated_at: Дата обновления
+    full_address: Полный адресс
+    full_name: Полное имя
 
   activerecord:
     state_machines:
@@ -42,8 +44,9 @@ ru:
         second_name: Фамилия
         phone: Номер телефона
         password: Пароль
+        city: Город
       company:
-        name: Имя
+        name: Наименование
         city: Город
         district: Район
         address: Адрес
