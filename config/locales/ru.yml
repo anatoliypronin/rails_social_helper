@@ -1,5 +1,6 @@
 ru:
   main_page: Главная страница
+
   admins: Админы
   companies: Компании
   are_you_sure?: Вы уверены?
@@ -8,11 +9,13 @@ ru:
     admins: Админы
     companies: Компании
     users: Пользователи
+    tasks: Задачи
+    districts: Районы
     homepage: Домашняя страница
     logout: Выход
     exit: Выйти
 
-  web:  
+  web:
     admin:
       admins:
         index:
@@ -55,3 +58,14 @@ ru:
         show:
           back: Назад
           edit: Редактировать
+      tasks:
+        index:
+          del: Удалить
+          add: Добавить
+          restore: Восстановить
+          edit: Редактировать
+          control: Управление
+          add_task:  Добавить задачу
+      districts:
+        index:
+          add_district: Добавить Район

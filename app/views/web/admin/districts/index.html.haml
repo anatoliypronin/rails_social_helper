@@ -1,0 +1,14 @@
+= link_to t('.add_district'), new_admin_district_path, class: 'btn btn-info'
+
+%table.table.table-hover
+  %tr
+    %th= t('attributes.id')
+    %th= District.human_attribute_name('city')
+    %th= District.human_attribute_name('name')
+    %th= t('attributes.control')
+  - @districts.each do |district|
+    %tr
+      %td= link_to district.id, admin_district_path(district.id), target: :_blank
+      %td= district.city.name
+      %td= district.name
+      %td= link_to 'Редактировать', edit_admin_district_path(district.id)

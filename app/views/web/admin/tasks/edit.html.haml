@@ -1,0 +1,6 @@
+= simple_form_for @task, url: admin_task_path(@task.id) do |f|
+  = f.association :user
+  = f.input :title
+  = f.input :description
+  = f.input :address
+  = f.button :submit, class: "btn btn-secondary"

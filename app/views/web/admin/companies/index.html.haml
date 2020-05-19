@@ -1,3 +1,4 @@
+
 %a.pull-right
   %h1= t('companies')
   %table.table.table-striped.table-hover
@@ -13,13 +14,8 @@
     %tr
       %td= link_to company.id, admin_company_path(company.id), target: :_blank
       %td= company.name
-      %td= company.full_address
+
       %td= company.email_registration
       %td= company.email_registration
       %td= company.phone
       %td= company.human_state_name
-      -if company.can_del?
-        %td= link_to t('.delete'), admin_company_del_path(company.id), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'
-      -if company.can_restore?
-        %td= link_to t('.restore'), admin_company_restore_path(company.id), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-sm'
-%td= link_to t('.add'), new_admin_company_path, class: 'btn btn-outline-secondary'

@@ -1,0 +1,4 @@
+= simple_form_for @district, url: admin_district_path(@district.id) do |f|
+  = f.association :city
+  = f.input :name
+  = f.button :submit, class: "btn btn-secondary"

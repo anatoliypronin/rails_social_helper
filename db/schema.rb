@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_163633) do
+ActiveRecord::Schema.define(version: 2020_05_18_105816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,32 @@ ActiveRecord::Schema.define(version: 2020_05_10_163633) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comment_likes", force: :cascade do |t|
+    t.bigint "comment_id", null: false
+    t.bigint "like_comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id", "like_comment_id"], name: "index_comment_likes_on_comment_id_and_like_comment_id", unique: true
+    t.index ["comment_id"], name: "index_comment_likes_on_comment_id"
+    t.index ["like_comment_id"], name: "index_comment_likes_on_like_comment_id"
+  end
+
+  create_table "comment_users", force: :cascade do |t|
+    t.bigint "comment_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id", "user_id"], name: "index_comment_users_on_comment_id_and_user_id", unique: true
+    t.index ["comment_id"], name: "index_comment_users_on_comment_id"
+    t.index ["user_id"], name: "index_comment_users_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,6 +86,22 @@ ActiveRecord::Schema.define(version: 2020_05_10_163633) do
     t.index ["city_id"], name: "index_districts_on_city_id"
   end
 
+  create_table "like_comment_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "like_comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["like_comment_id"], name: "index_like_comment_users_on_like_comment_id"
+    t.index ["user_id", "like_comment_id"], name: "index_like_comment_users_on_user_id_and_like_comment_id", unique: true
+    t.index ["user_id"], name: "index_like_comment_users_on_user_id"
+  end
+
+  create_table "like_comments", force: :cascade do |t|
+    t.boolean "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -69,14 +111,18 @@ ActiveRecord::Schema.define(version: 2020_05_10_163633) do
 
   create_table "tasks", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "company_id", null: false
     t.text "description", null: false
     t.string "title", null: false
     t.string "address", null: false
     t.string "state", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id"
+    t.bigint "city_id", null: false
+    t.bigint "district_id", null: false
+    t.index ["city_id"], name: "index_tasks_on_city_id"
     t.index ["company_id"], name: "index_tasks_on_company_id"
+    t.index ["district_id"], name: "index_tasks_on_district_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -94,10 +140,17 @@ ActiveRecord::Schema.define(version: 2020_05_10_163633) do
     t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
+  add_foreign_key "comment_likes", "comments"
+  add_foreign_key "comment_likes", "like_comments"
+  add_foreign_key "comment_users", "comments"
+  add_foreign_key "comment_users", "users"
   add_foreign_key "companies", "districts"
   add_foreign_key "companies", "services"
   add_foreign_key "districts", "cities"
-  add_foreign_key "tasks", "companies"
+  add_foreign_key "like_comment_users", "like_comments"
+  add_foreign_key "like_comment_users", "users"
+  add_foreign_key "tasks", "cities"
+  add_foreign_key "tasks", "districts"
   add_foreign_key "tasks", "users"
   add_foreign_key "users", "cities"
 end
