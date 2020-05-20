@@ -9,6 +9,7 @@
     %th= Task.human_attribute_name('description')
     %th= Task.human_attribute_name('city')
     %th= Task.human_attribute_name('district')
+    %th= Task.human_attribute_name('service')
     %th= Task.human_attribute_name('address')
     %th= Task.human_attribute_name('created_at')
     %th= Task.human_attribute_name('state')
@@ -21,6 +22,7 @@
       %td= task.description
       %td= task.city.name
       %td= task.district.name
+      %td= task.service.name
       %td= task.address
       %td= task.created_at
       %td= task.human_state_name
@@ -29,4 +31,3 @@
         %td= link_to t('.del'), admin_task_del_path(task.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger btn-sm'
       -if task.can_restore?
         %td= link_to t('.restore'), admin_task_restore_path(task.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-success btn-sm'
-    

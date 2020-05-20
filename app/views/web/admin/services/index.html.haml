@@ -1,0 +1,13 @@
+= link_to t('.add_services'), new_admin_service_path, class: 'btn btn-info'
+
+%table.table.table-hover
+  %tr
+    %th= t('attributes.id')
+
+    %th= Service.human_attribute_name('name')
+    %th= t('attributes.control')
+  - @services.each do |service|
+    %tr
+      %td= link_to service.id, admin_service_path(service.id), target: :_blank
+      %td= service.name
+      %td= link_to 'Редактировать', edit_admin_service_path(service.id)

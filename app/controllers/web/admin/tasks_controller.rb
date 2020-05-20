@@ -57,10 +57,10 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
     task.to_open
     redirect_to action: :index
   end
-  
+
   private
 
   def task_attrs
-    params.require(:task).permit(:description, :title, :address, :state, :user_id, :city_id, :district_id, :state)
+    params.require(:task).permit(:description, :title, :address, :state, :user_id, :city_id, :district_id, :state, :service_id)
   end
 end
