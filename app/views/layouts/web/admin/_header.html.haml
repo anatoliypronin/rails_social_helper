@@ -1,7 +1,7 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   .collapse.navbar-collapse
     .navbar-nav
-      = link_to t('header.homepage'), admin_users_path, class: 'navbar-brand'
+      = link_to t('header.mainpage'), root_path, class: 'navbar-brand'
       = link_to t('header.admins'), admin_admins_path, class: 'nav-item nav-link'
       = link_to t('header.companies'), admin_companies_path, class: 'nav-item nav-link'
       = link_to t('header.users'), admin_users_path, class: 'nav-item nav-link'
@@ -9,6 +9,5 @@
       = link_to t('header.districts'), admin_districts_path, class: 'nav-item nav-link'
       = link_to t('header.services'), admin_services_path, class: 'nav-item nav-link'
       %ul.navbar-num
-  %div
-    -# %div{style: 'color: white'}= current_admin.email
-    %div= link_to t('header.logout'), admin_sessions_path, method: :delete, class: 'btn btn-outline-secondary btn-sm'
+  %div{style: 'color: white', class: 'ml-2 mr-2'}= current_admin.name
+  %div= link_to t('header.logout'), admin_sessions_path, method: :delete, class: 'btn btn-outline-secondary btn-sm ml-2 mr-2'
