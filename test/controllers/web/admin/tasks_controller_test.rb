@@ -21,6 +21,7 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
     task_attrs = attributes_for(:task)
     task_attrs[:user_id] = @task.user_id
     task_attrs[:city_id] = @task.city_id
+    task_attrs[:service_id] = @task.service_id
     task_attrs[:district_id] = @task.district_id
 
     post admin_tasks_path, params: { task: task_attrs }

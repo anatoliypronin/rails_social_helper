@@ -6,5 +6,6 @@ FactoryBot.define do
     user
     city
     district
+    service
   end
 end

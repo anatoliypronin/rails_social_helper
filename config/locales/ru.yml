@@ -10,6 +10,7 @@ ru:
     companies: Компании
     users: Пользователи
     tasks: Задачи
+    services: Сервисы
     districts: Районы
     homepage: Домашняя страница
     logout: Выход
@@ -32,6 +33,7 @@ ru:
           edit: Редактировать
       companies:
         index:
+          add_сompanies: Добавить Компанию
           delete: Удалить
           restore: Восстановить
           add: Добавить
@@ -69,3 +71,8 @@ ru:
       districts:
         index:
           add_district: Добавить Район
+          control: Управление
+      services:
+        index:
+          add_service: Добавить Сервис
+          control: Управление

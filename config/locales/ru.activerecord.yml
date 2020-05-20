@@ -53,6 +53,9 @@ ru:
       district:
         one: Район
         other: Районы
+      service:
+        one: Сервис
+        other: Сервисы
 
     attributes:
       user:
@@ -85,3 +88,6 @@ ru:
         name: Наименование
         city: Город
         control: Управление
+      service:
+        name: Наименование
+        

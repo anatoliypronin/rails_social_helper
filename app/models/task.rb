@@ -2,6 +2,7 @@ class Task < ApplicationRecord
   belongs_to :user
   belongs_to :city
   belongs_to :district
+  belongs_to :service
 
   validates :description, presence: true, length: { minimum: 10 }
   validates :title, presence: true, length: { minimum: 10 }
