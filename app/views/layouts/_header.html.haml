@@ -1,0 +1,7 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .collapse.navbar-collapse
+    .navbar-nav  
+      = link_to t('header.mainpage'), root_path, class: 'navbar-brand'
+      %ul.navbar-num
+  %div= link_to t('header.login_user'), new_user_sessions_path, class: 'btn btn-outline-secondary btn-sm ml-2 mr-2'
+  %div= link_to t('header.login_company'), new_user_sessions_path, class: 'btn btn-outline-secondary btn-sm ml-2 mr-2'

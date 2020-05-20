@@ -1,7 +1,8 @@
-%nav.navbar.navbar-dark.bg-dark
-  = link_to t('header.homepage'), root_path, class: 'navbar-brand'
-  %ul.navbar.nav
-    %div
-      - if user_signed_in?
-        %div{style: 'color: white'} #{current_user.email}
-        %div{style: 'text-align: right'}= link_to t('header.logout'), user_sessions_path, method: :delete
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .collapse.navbar-collapse
+    .navbar-nav  
+      = link_to t('header.mainpage'), root_path, class: 'navbar-brand'
+      = link_to t('header.myprofile'), edit_user_profile_path, class: 'nav-item nav-link'
+      %ul.navbar-num
+  %div{style: 'color: white', class: 'ml-2 mr-2'}= current_user.first_name 
+  %div= link_to t('header.logout'), user_sessions_path, method: :delete, class: 'btn btn-outline-secondary btn-sm ml-2 mr-2'

@@ -9,4 +9,10 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .container
+      - if user_signed_in?
+        = render 'layouts/web/user/header'
+      - if admin_signed_in?
+        = render 'layouts/web/admin/header'
+      - if !(admin_signed_in? || user_signed_in?)
+        = render 'layouts/header'
       = yield

@@ -12,8 +12,11 @@ ru:
     tasks: Задачи
     districts: Районы
     homepage: Домашняя страница
-    logout: Выход
-    exit: Выйти
+    mainpage: Главная страница
+    myprofile: Мой профиль
+    logout: Выйти
+    login_user: Войти пользователь
+    login_company: Войти компания
 
   web:
     admin:

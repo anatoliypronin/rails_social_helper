@@ -7,3 +7,7 @@ if City.count.zero?
     City.create!(name: city['city'])
   end
 end
+
+User.create!(first_name: 'Пользователь', second_name: 'Пользователь', email: 'user@user.ru', password: '123456789', phone: '12345678912', city_id: 1)
+
+Admin.create!(name: 'Админ', email: 'admin@admin.ru', password: '123456789')
