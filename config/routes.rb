@@ -16,7 +16,8 @@ Rails.application.routes.draw do
         put 'del'
       end
       resources :admins
-      resources :districts, onle: %i[index new create edit update destroy]
+      resources :districts, only: %i[index new create edit update destroy]
+      resources :services, only: %i[index new create edit update destroy]
     end
 
     namespace :user do

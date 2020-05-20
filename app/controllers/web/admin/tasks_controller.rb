@@ -57,7 +57,7 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
     task.to_open
     redirect_to action: :index
   end
-
+  
   private
 
   def task_attrs

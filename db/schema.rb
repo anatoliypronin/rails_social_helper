@@ -118,11 +118,13 @@ ActiveRecord::Schema.define(version: 2020_05_18_105816) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "company_id"
-    t.bigint "city_id", null: false
-    t.bigint "district_id", null: false
+    t.bigint "city_id"
+    t.bigint "district_id"
+    t.bigint "service_id"
     t.index ["city_id"], name: "index_tasks_on_city_id"
     t.index ["company_id"], name: "index_tasks_on_company_id"
     t.index ["district_id"], name: "index_tasks_on_district_id"
+    t.index ["service_id"], name: "index_tasks_on_service_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -151,6 +153,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_105816) do
   add_foreign_key "like_comment_users", "users"
   add_foreign_key "tasks", "cities"
   add_foreign_key "tasks", "districts"
+  add_foreign_key "tasks", "services"
   add_foreign_key "tasks", "users"
   add_foreign_key "users", "cities"
 end
