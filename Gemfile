@@ -84,3 +84,7 @@ gem 'rails-observers'
 gem 'active_model_serializers', '~> 0.10.0'
 # Pundit provides a set of helpers which guide you in leveraging regular Ruby classes and object oriented design patterns to build a simple, robust and scalable authorization system.
 gem 'pundit'
+# Paginator
+gem 'will_paginate', '~> 3.1.0'
+# Bootstrap paginator
+gem 'will_paginate-bootstrap4'

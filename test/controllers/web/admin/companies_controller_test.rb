@@ -20,10 +20,7 @@ class Web::Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should post create company' do
-    company_attrs = attributes_for(:company)
-    company_attrs[:service_id] = @company.service_id
-    company_attrs[:district_id] = @company.district_id
-
+    company_attrs = attributes_for(:company, service_id: @company.service_id, district_id: @company.district_id, city_id: @company.city_id)
     post admin_companies_path, params: { company: company_attrs }
     assert_response :redirect
 
@@ -54,7 +51,6 @@ class Web::Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
   test 'should put update сompany' do
     attrs = {}
     attrs[:name] = generate :name
-    attrs[:password] = '1234567890'
 
     put admin_company_path(@company.id), params: { company: attrs }
     assert_response :redirect
@@ -64,15 +60,14 @@ class Web::Admin::CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should state del company' do
-    @company.del!
     put admin_company_del_path(@company.id)
-
     assert_response :redirect
     @company.reload
     assert_equal 'deleted', @company.state
   end
 
   test 'should state active company' do
+    @company.del
     put admin_company_restore_path(@company.id)
     assert_response :redirect
 

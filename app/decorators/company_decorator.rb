@@ -1,5 +1,5 @@
 class CompanyDecorator < ApplicationDecorator
   def full_address
-    "#{object.city} #{object.district} #{object.address}"
+    "Город: #{object.city.name} район:#{object.district.name} адрес: #{object.address}"
   end
 end

@@ -1,5 +1,7 @@
 %a.pull-right
   %h1= t('admins')
+%div{class: 'text-right'}
+  %td= link_to t('.add_admins'), new_admin_admin_path, class: 'btn btn-outline-secondary m-2'
 %table.table.table-striped.table-hover
   %tr
     %th= Admin.human_attribute_name(:id)
@@ -16,5 +18,6 @@
       %td= admin.role_text
       %td= admin.created_at
       %td= link_to t('.edit'), edit_admin_admin_path(admin.id), class: 'btn btn-info btn-sm'
-      %td= link_to t('.delete'), admin_admin_path(admin.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'
-%td= link_to t('.add'), new_admin_admin_path, class: 'btn btn-outline-secondary'
+      %td= link_to t('.delete'), admin_admin_path(admin.id), method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger btn-sm'
+%div{class: 'row justify-content-md-center'}
+  = will_paginate @admins, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

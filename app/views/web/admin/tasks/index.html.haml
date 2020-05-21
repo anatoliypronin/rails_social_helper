@@ -1,28 +1,25 @@
-= link_to t('.add_task'), new_admin_task_path, class: 'btn btn-info'
-
-
+%a.pull-right
+  %h1= t('tasks')
+%div{class: 'text-right'}
+  %td= link_to t('.add_task'), new_admin_task_path, class: 'btn btn-outline-secondary m-2'
 %table.table.table-hover
   %tr
     %th= t('attributes.id')
     %th= Task.human_attribute_name('title')
     %th= Task.human_attribute_name('user')
-    %th= Task.human_attribute_name('description')
     %th= Task.human_attribute_name('city')
     %th= Task.human_attribute_name('district')
-    %th= Task.human_attribute_name('service')
     %th= Task.human_attribute_name('address')
     %th= Task.human_attribute_name('created_at')
     %th= Task.human_attribute_name('state')
     %th{:colspan => "2"}= t('.control')
   - @tasks.each do |task|
     %tr
-      %td= link_to task.id, admin_task_path(task.id), target: :_blank
-      %td= task.title
+      %td= task.id
+      %td= link_to task.title, admin_task_path(task.id), target: :_blank, class: 'btn btn-outline-secondary btn-sm'
       %td= task.user.first_name
-      %td= task.description
       %td= task.city.name
       %td= task.district.name
-      %td= task.service.name
       %td= task.address
       %td= task.created_at
       %td= task.human_state_name
@@ -31,3 +28,5 @@
         %td= link_to t('.del'), admin_task_del_path(task.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger btn-sm'
       -if task.can_restore?
         %td= link_to t('.restore'), admin_task_restore_path(task.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-success btn-sm'
+%div{class: 'row justify-content-md-center'}
+  = will_paginate @tasks, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

@@ -1,5 +1,7 @@
 %a.pull-right
   %h1= t('users')
+%div{class: 'text-right'}
+  %td= link_to t('.add_users'), new_admin_user_path, class: 'btn btn-outline-secondary m-2'
 %table.table.table-striped.table-hover
   %tr
     %th= User.human_attribute_name(:id)
@@ -11,8 +13,8 @@
     %th{:colspan => "2"}= t('.control')
   - @users.each do |user|
     %tr
-      %td= link_to user.id, admin_user_path(user.id), target: :_blank
-      %td= user.full_name
+      %td= user.id
+      %td= link_to user.full_name, admin_user_path(user.id), target: :_blank, class: 'btn btn-outline-secondary btn-sm'
       %td= user.phone
       %td= user.email
       %td= user.city.name
@@ -22,4 +24,5 @@
         %td= link_to t('.delete'), admin_user_del_path(user.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger btn-sm'
       -if user.can_restore?
         %td= link_to t('.restore'), admin_user_restore_path(user.id), method: :put, data: { confirm: t('are_you_sure?') }, class: 'btn btn-success btn-sm'
-%td= link_to t('.add'), new_admin_user_path, class: 'btn btn-outline-secondary'
+%div{class: 'row justify-content-md-center'}
+  = will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
