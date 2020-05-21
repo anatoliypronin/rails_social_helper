@@ -1,10 +1,18 @@
-%h1= @task.title
-
-
-= image_tag(@task.image.url, alt: 'Image') if @task.image?
-= @task.user.first_name
-= @task.city.name
-= @task.district.name
-= @task.description
-= @task.address
-= @task.state
+%article.task
+  %section.task-head
+    %h1= @task.title
+    %b= @task.city.name
+    ,
+    %b= @task.district.name
+    ,
+    %b= @task.address
+    %br= @task.service.name
+    %small
+      %time= @task.created_at.to_date.strftime("%d %B, %Y, %H:%M ")
+      |
+      \#{link_to 'Изменить', edit_admin_task_path(@task)}
+      |
+      \#{link_to 'Удалить', admin_task_del_path(@task), method: :put, data: { confirm: t('are_you_sure?') }}
+  %section.post-body
+    = image_tag @task.image.url(:large), class: 'img-show' if @task.image?
+  %br= @task.description.html_safe
