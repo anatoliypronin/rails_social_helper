@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  include TaskRepository
+
   belongs_to :user
   belongs_to :city
   belongs_to :district
