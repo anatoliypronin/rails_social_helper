@@ -84,3 +84,6 @@ gem 'rails-observers'
 gem 'active_model_serializers', '~> 0.10.0'
 # Pundit provides a set of helpers which guide you in leveraging regular Ruby classes and object oriented design patterns to build a simple, robust and scalable authorization system.
 gem 'pundit'
+gem 'carrierwave', '~> 2.0'
+gem "mini_magick"
+gem 'file_validators'

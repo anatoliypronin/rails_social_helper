@@ -1,6 +1,6 @@
 ru:
   attributes:
-    id: Идентификатор
+    id: ID
     email: E-mail
     state: Состояние
     created_at: Дата создания
@@ -83,11 +83,13 @@ ru:
         city: Город
         district:	Район
         address: Адрес
+        service: Сервис
         control: Управление
+        image: Фото
       district:
         name: Наименование
         city: Город
         control: Управление
       service:
         name: Наименование
-        
+        control: Управление

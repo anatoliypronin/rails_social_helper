@@ -1,10 +1,10 @@
 %h1= @task.title
 
-%br
-%b = @task.user.first_name
-%b = @task.user.last_name
-%b= @task.city.name
-%b= @task.district.name
-%b= @task.description
-%b= @task.address
-%b= @task.state
+
+= image_tag(@task.image.url, alt: 'Image') if @task.image?
+= @task.user.first_name
+= @task.city.name
+= @task.district.name
+= @task.description
+= @task.address
+= @task.state
