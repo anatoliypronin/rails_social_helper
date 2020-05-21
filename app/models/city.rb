@@ -3,6 +3,7 @@
 class City < ApplicationRecord
   has_many :users, dependent: :nullify
   has_many :districts,  dependent: :nullify
+  has_many :companies,  dependent: :nullify
 
   validates :name, presence: true, length: { in: 2..60 }, name: true
 end

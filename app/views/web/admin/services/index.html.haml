@@ -1,13 +1,17 @@
-= link_to t('.add_services'), new_admin_service_path, class: 'btn btn-info'
-
+%a.pull-right
+  %h1= t('services')
+%div{class: 'text-right'}
+  %td= link_to t('.add_services'), new_admin_service_path, class: 'btn btn-outline-secondary m-2'
 %table.table.table-hover
   %tr
     %th= t('attributes.id')
-
     %th= Service.human_attribute_name('name')
-    %th= t('attributes.control')
+    %th{:colspan => "2"}= t('.control')
   - @services.each do |service|
     %tr
-      %td= link_to service.id, admin_service_path(service.id), target: :_blank
+      %td= service.id
       %td= service.name
-      %td= link_to 'Редактировать', edit_admin_service_path(service.id)
+      %td= link_to t('.edit'), edit_admin_service_path(service.id), class: 'btn btn-info btn-sm'
+      %td= link_to t('.delete'), admin_service_path(service.id), method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger btn-sm'
+%div{class: 'row justify-content-md-center'}
+  = will_paginate @services, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

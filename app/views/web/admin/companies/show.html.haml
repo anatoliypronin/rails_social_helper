@@ -1,10 +1,16 @@
 %h1= @company.name
 
 %br
-%b= @company.city
-%b= @company.district
-%b= @company.address
-%b= @company.email_registration
-%b= @company.email_registration
-%b= @company.phone
+%b Город
+%p= @company.city.name
+%b Район
+%p= @company.district.name
+%b Адрес
+%p= @company.address
+%b E-mail регистрации
+%p= @company.email_registration
+%b E-mail для нотификации
+%p= @company.email_notification
+%b Телефон
+%p= @company.phone
 %td= link_to t('.back'), admin_admins_path, class: 'btn btn-outline-secondary'

@@ -3,6 +3,10 @@ ru:
 
   admins: Админы
   companies: Компании
+  users: Пользователи
+  tasks: Задачи
+  services: Сервисы
+  districts: Районы
   are_you_sure?: Вы уверены?
 
   header:
@@ -24,7 +28,7 @@ ru:
       admins:
         index:
           delete: Удалить
-          add: Добавить
+          add_admins: Добавить админа
           edit: Редактировать
           control: Управление
         new:
@@ -36,7 +40,7 @@ ru:
           edit: Редактировать
       companies:
         index:
-          add_сompanies: Добавить Компанию
+          add_сompanies: Добавить компанию
           delete: Удалить
           restore: Восстановить
           add: Добавить
@@ -52,7 +56,7 @@ ru:
       users:
         index:
           delete: Удалить
-          add: Добавить
+          add_users: Добавить пользователя
           restore: Восстановить
           edit: Редактировать
           control: Управление
@@ -73,9 +77,21 @@ ru:
           add_task:  Добавить задачу
       districts:
         index:
-          add_district: Добавить Район
+          edit: Редактировать
+          delete: Удалить
+          add_district: Добавить район
           control: Управление
+        new:
+          cancel: Отмена
+        edit:
+          cancel: Отмена
       services:
         index:
-          add_service: Добавить Сервис
+          delete: Удалить
+          edit: Редактировать
+          add_services: Добавить сервис
           control: Управление
+        new:
+          cancel: Отмена
+        edit:
+          cancel: Отмена

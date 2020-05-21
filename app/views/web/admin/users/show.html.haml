@@ -1,4 +1,10 @@
-%h1= @user.first_name
+%h1= @user.full_name
 
-%b= @user.second_name
-= link_to t('.cancel'), admin_users_path, class: 'btn btn-outline-secondary'
+%br
+%b Город:
+%p= @user.city.name
+%b E-mail:
+%p= @user.email
+%b Телефон
+%p= @user.phone
+%td= link_to t('.back'), admin_users_path, class: 'btn btn-outline-secondary'
