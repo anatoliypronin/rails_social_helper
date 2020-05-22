@@ -1,6 +1,6 @@
 = simple_form_for @task, url: user_tasks_path do |f|
     = f.input :title
-    = f.association :city, include_blank: current_user.city_id
+    = f.association :city, default: current_user.city_id
     = f.association :district, include_blank: true
     = f.association :service, include_blank: true
     = f.input :description

@@ -22,13 +22,13 @@ class Web::User::TasksControllerTest < ActionDispatch::IntegrationTest
     assert_equal task_attrs[:description], task.description
   end
 
-#   test 'should not post create task' do
-#     task_attrs = attributes_for :task, title: nil
+  #   test 'should not post create task' do
+  #     task_attrs = attributes_for :task, title: nil
 
-#     post user_tasks_path, params: { task: task_attrs }
-#     assert_response :success
+  #     post user_tasks_path, params: { task: task_attrs }
+  #     assert_response :success
 
-#     task = Task.find_by(title: task_attrs[:name])
-#     assert_nil task
-#   end
+  #     task = Task.find_by(title: task_attrs[:name])
+  #     assert_nil task
+  #   end
 end
