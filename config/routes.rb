@@ -11,9 +11,15 @@ Rails.application.routes.draw do
     namespace :admin do
       resource :sessions, only: %i[new create destroy]
       root to: 'companies#index'
-      resources :users, :companies, :tasks, :districts do
+      resources :users, :companies, :districts do
         put 'restore'
         put 'del'
+      end
+      resources :tasks do
+        put 'restore'
+        put 'del'
+        put 'process'
+        put 'complete'
       end
       resources :admins
       resources :districts, only: %i[index new create edit update destroy]

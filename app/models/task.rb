@@ -4,7 +4,7 @@ class Task < ApplicationRecord
   belongs_to :district
   belongs_to :service
   mount_uploader :image, ImageUploader
-  validates :image, file_size: { less_than: 1.megabytes }
+
   validates :description, presence: true, length: { minimum: 10 }
   validates :title, presence: true, length: { minimum: 10 }
   validates :address, presence: true, length: { minimum: 10 }
@@ -19,6 +19,38 @@ class Task < ApplicationRecord
 
     event :restore do
       transition deleted: :active
+    end
+  end
+
+  state_machine :state_user, initial: :new do
+    state :in_process
+    state :new
+    state :completed
+
+    event :process do
+      transition new: :in_process
+    end
+
+    event :complete do
+      transition in_process: :completed
+    end
+  end
+
+  state_machine :state_company, initial: :in_worked do
+    state :in_worked
+    state :refused
+    state :performed
+
+    event :reject do
+      transition in_worked: :refused
+    end
+
+    event :done do
+      transition in_worked: :performed
+    end
+
+    event :work do
+      transition refused: :in_worked
     end
   end
 end
