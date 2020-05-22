@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_200131) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
-    t.string "city", null: false
     t.string "address", null: false
     t.string "email_registration", null: false
     t.string "email_notification", null: false
@@ -70,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_200131) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "service_id"
     t.bigint "district_id", default: 1, null: false
+    t.bigint "city_id", default: 0, null: false
+    t.index ["city_id"], name: "index_companies_on_city_id"
     t.index ["district_id"], name: "index_companies_on_district_id"
     t.index ["email_notification"], name: "index_companies_on_email_notification", unique: true
     t.index ["email_registration"], name: "index_companies_on_email_registration", unique: true
@@ -149,6 +150,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_200131) do
   add_foreign_key "comment_likes", "like_comments"
   add_foreign_key "comment_users", "comments"
   add_foreign_key "comment_users", "users"
+  add_foreign_key "companies", "cities"
   add_foreign_key "companies", "districts"
   add_foreign_key "companies", "services"
   add_foreign_key "districts", "cities"

@@ -2,7 +2,7 @@
 
 class Web::Admin::CompaniesController < Web::Admin::ApplicationController
   def index
-    @companies = Company.all.decorate
+    @companies = Company.all.paginate(page: params[:page]).decorate
   end
 
   def new
@@ -39,21 +39,18 @@ class Web::Admin::CompaniesController < Web::Admin::ApplicationController
   def del
     company = Company.find(params[:company_id])
     company.del
-
     redirect_to action: :index
   end
 
   def restore
     company = Company.find(params[:company_id])
-
     company.restore
-
     redirect_to action: :index
   end
 
   private
 
   def company_attrs
-    params.require(:company).permit(:name, :city, :district_id, :address, :email_registration, :email_notification, :password, :phone, :service_id, :state)
+    params.require(:company).permit(:name, :city_id, :district_id, :address, :email_registration, :email_notification, :password, :phone, :service_id, :state)
   end
 end

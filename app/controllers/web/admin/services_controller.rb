@@ -1,6 +1,6 @@
 class Web::Admin::ServicesController < Web::Admin::ApplicationController
   def index
-    @services = Service.all
+    @services = Service.all.paginate(page: params[:page])
   end
 
   def new

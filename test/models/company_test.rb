@@ -21,12 +21,7 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test 'Should not create company without city name' do
-    company = build :company, city: nil
-    assert_not company.save
-  end
-
-  test 'Should not create company with too long city name' do
-    company = build :company, city: 'Tooooooooooooooooo long city name'
+    company = build :company, city_id: nil
     assert_not company.save
   end
 

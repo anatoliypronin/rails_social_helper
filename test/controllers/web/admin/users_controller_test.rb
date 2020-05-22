@@ -63,15 +63,14 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should state del user' do
-    @user.del!
     put admin_user_del_path(@user.id)
-
     assert_response :redirect
     @user.reload
     assert_equal 'deleted', @user.state
   end
 
   test 'should state active user' do
+    @user.del!
     put admin_user_restore_path(@user.id)
     assert_response :redirect
 

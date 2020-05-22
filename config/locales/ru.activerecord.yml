@@ -1,6 +1,6 @@
 ru:
   attributes:
-    id: ID
+    id: id
     email: E-mail
     state: Состояние
     created_at: Дата создания
@@ -71,11 +71,13 @@ ru:
         address: Адрес
         email_registration: E-mail для регистрации
         email_notification: E-mail для нотификации
+        service: Сервис
         password: Пароль
         phone: Номер телефона
       admin:
         name: Имя
         role: Роль
+        password: Пароль
       task:
         title: Наименование
         user: Пользователь

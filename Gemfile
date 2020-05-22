@@ -87,3 +87,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'file_validators'
 gem "mini_magick"
 gem 'pundit'
+# Paginator
+gem 'will_paginate', '~> 3.1.0'
+# Bootstrap paginator
+gem 'will_paginate-bootstrap4'

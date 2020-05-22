@@ -1,14 +1,19 @@
-= link_to t('.add_district'), new_admin_district_path, class: 'btn btn-info'
-
+%a.pull-right
+  %h1= t('districts')
+%div{class: 'text-right'}
+  %td= link_to t('.add_district'), new_admin_district_path, class: 'btn btn-outline-secondary m-2'
 %table.table.table-hover
   %tr
     %th= t('attributes.id')
     %th= District.human_attribute_name('city')
     %th= District.human_attribute_name('name')
-    %th= t('attributes.control')
+    %th{:colspan => "2"}= t('.control')
   - @districts.each do |district|
     %tr
-      %td= link_to district.id, admin_district_path(district.id), target: :_blank
-      %td= district.city.name
+      %td= district.id
       %td= district.name
-      %td= link_to 'Редактировать', edit_admin_district_path(district.id)
+      %td= district.city.name
+      %td= link_to t('.edit'), edit_admin_district_path(district.id), class: 'btn btn-info btn-sm'
+      %td= link_to t('.delete'), admin_district_path(district.id), method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger btn-sm'
+%div{class: 'row justify-content-md-center'}
+  = will_paginate @districts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

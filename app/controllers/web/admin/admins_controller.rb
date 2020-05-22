@@ -1,6 +1,6 @@
 class Web::Admin::AdminsController < Web::Admin::ApplicationController
   def index
-    @admins = Admin.all.decorate
+    @admins = Admin.all.paginate(page: params[:page]).decorate
   end
 
   def new

@@ -1,8 +1,9 @@
 = simple_form_for @company, url: admin_companies_path do |f|
   = f.input :name
-  = f.input :city
-  = f.association :district
+  = f.association :city, include_blank: true
+  = f.association :district, include_blank: true
   = f.input :address
+  = f.association :service, include_blank: true
   = f.input :email_registration
   = f.input :email_notification
   = f.input :password
