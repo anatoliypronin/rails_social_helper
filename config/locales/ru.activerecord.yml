@@ -87,10 +87,10 @@ ru:
         address: Адрес
         service: Сервис
         control: Управление
+        image: Фото
       district:
         name: Название
         city: Город
         control: Управление
       service:
         name: Название
-        

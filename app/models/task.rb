@@ -3,6 +3,7 @@ class Task < ApplicationRecord
   belongs_to :city
   belongs_to :district
   belongs_to :service
+  mount_uploader :image, ImageUploader
 
   validates :description, presence: true, length: { minimum: 10 }
   validates :title, presence: true, length: { minimum: 10 }

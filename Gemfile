@@ -83,6 +83,9 @@ gem 'rails-observers'
 # ActiveModelSerializers brings convention over configuration to your JSON generation.
 gem 'active_model_serializers', '~> 0.10.0'
 # Pundit provides a set of helpers which guide you in leveraging regular Ruby classes and object oriented design patterns to build a simple, robust and scalable authorization system.
+gem 'carrierwave', '~> 2.0'
+gem 'file_validators'
+gem "mini_magick"
 gem 'pundit'
 # Paginator
 gem 'will_paginate', '~> 3.1.0'
