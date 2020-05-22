@@ -88,3 +88,5 @@ gem 'pundit'
 gem 'will_paginate', '~> 3.1.0'
 # Bootstrap paginator
 gem 'will_paginate-bootstrap4'
+
+gem 'ransack'

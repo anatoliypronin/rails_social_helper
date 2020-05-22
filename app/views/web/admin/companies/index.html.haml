@@ -1,5 +1,13 @@
 %a.pull-right
   %h1= t('companies')
+    
+-# %a.btn.btn-primary{"aria-controls" => "search_form", "aria-expanded" => "false", "data-toggle" => "collapse", href: "#search_form", role: "button"} 
+-#   Поиск
+
+-# %div{class: "collapse", id: "search_form"}
+= render 'search_form'
+
+
 %div{class: 'text-right'}
   %td= link_to t('.add_сompanies'), new_admin_company_path, class: 'btn btn-outline-secondary m-2'
 %table.table.table-striped.table-hover

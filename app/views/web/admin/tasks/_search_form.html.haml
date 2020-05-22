@@ -1,0 +1,11 @@
+= search_form_for [:admin, @q], builder: SimpleForm::FormBuilder, wrapper: :horizontal_form, html: { class: 'form-horizontal'} do |f|
+    .row
+        .col-md-6
+            = f.input :title_cont, label: 'Название'
+            = f.input :user_id_eq, collection: User.all.map{ |t| ["#{t.first_name} #{t.second_name}", t.id]}, label: 'Пользователь'
+            = f.input :city_id_eq, collection: City.all.map{ |t| [t.name, t.id]}, label: 'Город'
+        .col-md-6
+            = f.input :district_id_eq, collection: District.all.map{ |t| [t.name, t.id]}, label: 'Район'
+            = f.input :address_cont, label: 'Адрес'
+            = f.input :state_eq, collection: [['Активный', 'active'], ['Удаленный', 'deleted']], label: 'Состояние'
+        = f.button :submit, 'Искать', class: 'btn btn-outline-secondary m-2'

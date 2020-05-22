@@ -1,5 +1,8 @@
 %a.pull-right
   %h1= t('admins')
+
+= render 'search_form'
+
 %div{class: 'text-right'}
   %td= link_to t('.add_admins'), new_admin_admin_path, class: 'btn btn-outline-secondary m-2'
 %table.table.table-striped.table-hover
