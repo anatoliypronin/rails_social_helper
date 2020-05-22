@@ -21,6 +21,4 @@ class Task < ApplicationRecord
       transition deleted: :active
     end
   end
-
-
 end
