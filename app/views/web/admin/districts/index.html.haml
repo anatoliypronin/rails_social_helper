@@ -1,5 +1,8 @@
 %a.pull-right
   %h1= t('districts')
+
+= render 'search_form'
+
 %div{class: 'text-right'}
   %td= link_to t('.add_district'), new_admin_district_path, class: 'btn btn-outline-secondary m-2'
 %table.table.table-hover
@@ -11,8 +14,8 @@
   - @districts.each do |district|
     %tr
       %td= district.id
-      %td= district.name
       %td= district.city.name
+      %td= district.name
       %td= link_to t('.edit'), edit_admin_district_path(district.id), class: 'btn btn-info btn-sm'
       %td= link_to t('.delete'), admin_district_path(district.id), method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger btn-sm'
 %div{class: 'row justify-content-md-center'}

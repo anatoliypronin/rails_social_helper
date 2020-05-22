@@ -2,7 +2,8 @@
 
 class Web::Admin::CompaniesController < Web::Admin::ApplicationController
   def index
-    @companies = Company.all.paginate(page: params[:page]).decorate
+    @q = Company.ransack(params[:q])
+    @companies = @q.result.all.paginate(page: params[:page]).decorate
   end
 
   def new

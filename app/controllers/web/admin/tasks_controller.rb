@@ -1,6 +1,7 @@
 class Web::Admin::TasksController < Web::Admin::ApplicationController
   def index
-    @tasks = Task.all.paginate(page: params[:page]).decorate
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result.all.paginate(page: params[:page]).decorate
   end
 
   def new

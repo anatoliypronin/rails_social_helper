@@ -1,6 +1,7 @@
 class Web::Admin::DistrictsController < Web::Admin::ApplicationController
   def index
-    @districts = District.all.paginate(page: params[:page])
+    @q = District.ransack(params[:q])
+    @districts = @q.result.all.paginate(page: params[:page])
   end
 
   def new

@@ -1,6 +1,7 @@
 class Web::Admin::AdminsController < Web::Admin::ApplicationController
   def index
-    @admins = Admin.all.paginate(page: params[:page]).decorate
+    @q = Admin.ransack(params[:q])
+    @admins = @q.result.all.paginate(page: params[:page]).decorate
   end
 
   def new

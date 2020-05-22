@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
     namespace :user do
       resource :profile, only: %i[edit update]
+      resource :tasks, only: %i[new create]
       resource :sessions, only: %i[new create destroy]
     end
   end

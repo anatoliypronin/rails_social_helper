@@ -1,0 +1,10 @@
+
+= search_form_for [:admin, @q], builder: SimpleForm::FormBuilder, wrapper: :horizontal_form, html: { class: 'form-horizontal'} do |f|
+  .row
+    .col-md-6
+      = f.input :name_cont, label: 'Имя'
+      = f.input :email_cont, label: 'E-mail'
+    .col-md-6
+
+      = f.input :role_eq, collection: [['Администратор', 'admin'], ['Редактор', 'editor']], label: 'Роль'
+    = f.button :submit, 'Искать', class: 'btn btn-outline-secondary m-2'
