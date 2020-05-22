@@ -1,4 +1,9 @@
 class TaskIndexSerializer < ActiveModel::Serializer
-  attributes :title, :description, :city_id, :district_id, :address, :user_id, :service_id
+  attributes :title, :description, :address
+
+  belongs_to :city
+  belongs_to :district
+  belongs_to :service
+  belongs_to :user
 end
   
