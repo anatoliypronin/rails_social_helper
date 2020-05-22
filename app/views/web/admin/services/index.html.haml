@@ -1,5 +1,8 @@
 %a.pull-right
   %h1= t('services')
+
+= render 'search_form'
+
 %div{class: 'text-right'}
   %td= link_to t('.add_services'), new_admin_service_path, class: 'btn btn-outline-secondary m-2'
 %table.table.table-hover

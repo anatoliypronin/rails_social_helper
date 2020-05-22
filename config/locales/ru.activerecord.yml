@@ -65,7 +65,7 @@ ru:
         password: Пароль
         city: Город
       company:
-        name: Наименование
+        name: Название
         city: Город
         district: Район
         address: Адрес
@@ -79,7 +79,7 @@ ru:
         role: Роль
         password: Пароль
       task:
-        title: Наименование
+        title: Название
         user: Пользователь
         description: Описание
         city: Город
@@ -88,9 +88,9 @@ ru:
         service: Сервис
         control: Управление
       district:
-        name: Наименование
+        name: Название
         city: Город
         control: Управление
       service:
-        name: Наименование
+        name: Название
         
