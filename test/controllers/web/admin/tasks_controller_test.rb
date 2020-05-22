@@ -79,36 +79,6 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'active', @task.state
   end
 
-  test 'should state_user new task' do
-    @task.state_user = 'process'
-    put admin_task_restore_path(@task.id)
-    assert_response :redirect
-
-    @task.state_user = 'complete'
-    put admin_task_restore_path(@task.id)
-    assert_response :redirect
-
-    @task.reload
-    assert_equal 'new', @task.state_user
-  end
-
-  test 'should state_task  in worked task' do
-    @task.state_company = 'reject'
-    put admin_task_restore_path(@task.id)
-    assert_response :redirect
-
-    @task.state_company = 'done'
-    put admin_task_restore_path(@task.id)
-    assert_response :redirect
-
-    @task.state_company = 'work'
-    put admin_task_restore_path(@task.id)
-    assert_response :redirect
-
-    @task.reload
-    assert_equal 'in_worked', @task.state_company
-  end
-
   test 'should image create task' do
     task_attrs = attributes_for :task, image: true
 
