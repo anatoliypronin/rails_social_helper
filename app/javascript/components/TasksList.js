@@ -37,9 +37,8 @@ class TasksList extends React.Component {
         detailPanel={rowData => {
           return (
             <iframe
-              width="100px"
-              height="100px"
-              src="https://www.youtube.com/embed/C0DPdy98e4c"
+              width="100%"
+              height="315"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
