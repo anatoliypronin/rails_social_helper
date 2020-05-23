@@ -7,5 +7,5 @@ class Api::V1::TasksController < Api::V1::ApplicationController
   def show
     task = Task.active.find(params[:id])
     render json: task, serializer: TaskIndexSerializer
-  end 
+  end
 end

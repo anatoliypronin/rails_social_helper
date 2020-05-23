@@ -6,4 +6,3 @@ class TaskIndexSerializer < ActiveModel::Serializer
   belongs_to :service
   belongs_to :user
 end
-  

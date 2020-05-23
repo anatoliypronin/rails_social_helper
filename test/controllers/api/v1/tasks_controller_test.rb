@@ -16,5 +16,5 @@ class Api::V1::TasksControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal response.parsed_body["title"], @task.title
     assert_equal response.parsed_body["description"], @task.description
-  end  
+  end
 end
