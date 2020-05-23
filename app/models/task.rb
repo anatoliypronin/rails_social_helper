@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  include TaskRepository
+
   belongs_to :user
   belongs_to :city
   belongs_to :district
@@ -8,6 +10,7 @@ class Task < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10 }
   validates :title, presence: true, length: { minimum: 10 }
   validates :address, presence: true, length: { minimum: 10 }
+  validates :image, file_size: { less_than: 1.megabytes }
 
   state_machine initial: :active do
     state :active
