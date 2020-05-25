@@ -32,7 +32,6 @@ class Task < ApplicationRecord
 
   private
   def image_type
-    errors.add(:images, "отсутствует!") if images.attached? == false
     images.each do |image|
       errors.add(:images, 'должно быть JPEG или PNG') unless image.content_type.in?(%('image/jpeg image/png'))
     end
