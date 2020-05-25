@@ -87,7 +87,8 @@ ru:
         address: Адрес
         service: Сервис
         control: Управление
-        image: Фото
+        images: Фото
+        videos: Видео
       district:
         name: Название
         city: Город

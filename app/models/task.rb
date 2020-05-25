@@ -5,13 +5,14 @@ class Task < ApplicationRecord
   belongs_to :city
   belongs_to :district
   belongs_to :service
-  mount_uploader :image, ImageUploader
-
+  has_many_attached :images
+  has_many_attached :videos
+  validates :images, file_size: { less_than: 1.megabytes }
   validates :description, presence: true, length: { minimum: 10 }
   validates :title, presence: true, length: { minimum: 10 }
   validates :address, presence: true, length: { minimum: 10 }
-  validates :image, file_size: { less_than: 1.megabytes }
-
+  validate :image_type
+  validate :video_type
   state_machine initial: :active do
     state :active
     state :deleted
@@ -22,6 +23,24 @@ class Task < ApplicationRecord
 
     event :restore do
       transition deleted: :active
+    end
+  end
+
+  def thumbnail(input)
+    images[input].variant(resize: '300x300!').processed
+  end
+
+  private
+  def image_type
+    errors.add(:images, "отсутствует!") if images.attached? == false
+    images.each do |image|
+      errors.add(:images, 'должно быть JPEG или PNG') unless image.content_type.in?(%('image/jpeg image/png'))
+    end
+  end
+
+  def video_type
+    videos.each do |video|
+      errors.add(:videos, 'должно быть MP4 или AVI') unless video.content_type.in?(%('video/mp4 video/avi'))
     end
   end
 end

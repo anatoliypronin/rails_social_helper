@@ -9,6 +9,7 @@ AllCops:
     - 'tmp/**/*'
     - 'config/environment.rb'
     - 'vendor/**/*'
+    - 'db/migrate/20200525145900_create_active_storage_tables.active_storage.rb'
 
 Rails:
   Enabled: true

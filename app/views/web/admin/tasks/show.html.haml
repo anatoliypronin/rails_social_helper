@@ -1,4 +1,6 @@
-%article.task
+%link{:href => "https://vjs.zencdn.net/7.7.6/video-js.css", :rel => "stylesheet"}/
+%script{:src => "https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"}
+%task.task
   %section.task-head
     %h1= @task.title
     %b= @task.city.name
@@ -13,6 +15,14 @@
       \#{link_to 'Изменить', edit_admin_task_path(@task)}
       |
       \#{link_to 'Удалить', admin_task_del_path(@task), method: :put, data: { confirm: t('are_you_sure?') }}
-  %section.post-body
-    = image_tag @task.image.url(:large), class: 'img-show' if @task.image?
+  %section.post-bodyS
+    - (0...@task.images.count).each do |image|
+      = image_tag(@task.thumbnail(image))
+    - (0...@task.videos.count).each do |video|
+      %video#my-video.video-js{:controls => "", "data-setup" => "{}", :height => "264", :poster => "MY_VIDEO_POSTER.jpg", :preload => "auto", :width => "640"}
+        %source{:src => url_for(@task.videos[video]), :type => "video/mp4"}
+
+
+
   %br= @task.description.html_safe
+%script{:src => "https://vjs.zencdn.net/7.7.6/video.js"}
