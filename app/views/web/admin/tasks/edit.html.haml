@@ -1,4 +1,4 @@
-= simple_form_for @task, url: admin_task_path(@task.id) do |f|
+= simple_form_for @task,html: { multipart: true } , url: admin_task_path(@task.id) do |f|
   = f.association :user, label_method: :first_name, include_blank: false
   = f.input :title
   = f.association :city
@@ -6,5 +6,6 @@
   = f.association :service
   = f.input :description
   = f.input :address
-  = f.input :image, as: :file, multiple: true
+  = f.input :images, as: :file, input_html: { multiple: true }
+  = f.input :videos, as: :file, input_html: { multiple: true }
   = f.button :submit, class: "btn btn-secondary"
