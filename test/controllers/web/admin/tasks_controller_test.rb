@@ -78,14 +78,4 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
     @task.reload
     assert_equal 'active', @task.state
   end
-
-  test 'should image create task' do
-    task_attrs = attributes_for :task, image: true
-
-    post admin_tasks_path, params: { task: task_attrs }
-    assert_response :success
-
-    task = Task.find_by(image: task_attrs[:image])
-    assert_nil task
-  end
 end
