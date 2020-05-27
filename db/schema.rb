@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 2020_05_25_145900) do
     t.bigint "city_id"
     t.bigint "district_id"
     t.bigint "service_id"
-    t.string "image"
     t.string "state_user"
     t.string "state_company"
     t.index ["city_id"], name: "index_tasks_on_city_id"
