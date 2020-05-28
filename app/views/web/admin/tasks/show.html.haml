@@ -3,12 +3,11 @@
 %task.task
   %section.task-head
     %h1= @task.title
-    %b= @task.city.name
+    = @task.services.map(&:name).join(', ')
+    %br= @task.city.name
     ,
-    %b= @task.district.name
-    ,
+ex    ,
     %b= @task.address
-    %br= @task.service.name
     %small
       %time= @task.created_at.to_date.strftime("%d %B, %Y, %H:%M ")
       |

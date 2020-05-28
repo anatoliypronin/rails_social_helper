@@ -41,6 +41,6 @@ class Web::Admin::ServicesController < Web::Admin::ApplicationController
   private
 
   def service_attrs
-    params.require(:service).permit(:name)
+    params.require(:service).permit(:name, task_ids: [])
   end
 end

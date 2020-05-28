@@ -1,10 +1,11 @@
 class Task < ApplicationRecord
   include TaskRepository
 
+  has_many :task_services, dependent: :destroy
+  has_many :services, through: :task_services
   belongs_to :user
   belongs_to :city
   belongs_to :district
-  belongs_to :service
   has_many_attached :images
   has_many_attached :videos
   validates :images, file_size: { less_than: 1.megabytes }
