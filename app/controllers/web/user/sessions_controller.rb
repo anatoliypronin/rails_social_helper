@@ -16,6 +16,6 @@ class Web::User::SessionsController < Web::User::ApplicationController
 
   def destroy
     user_sign_out
-    redirect_to new_user_sessions_path
+    redirect_to root_path
   end
 end
