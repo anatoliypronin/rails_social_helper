@@ -1,0 +1,24 @@
+%hr/
+%h3.title-comments Комментарии
+- @task.comments.each do |comment|
+    .comments
+    %hr{style: "height: 12px; border: 0; box-shadow: inset 0 15px 12px -11px rgba(0,0,0,0.15);"}
+    %ul.media-list
+        / Комментарий (уровень 1)
+        %li.media
+        .media-body
+            .media-heading
+            - if comment.author_type == 'Admin'
+                %b 
+                    = comment.author.name
+            - else 
+                %b 
+                    = comment.author.first_name
+                    = comment.author.second_name
+            .metadata
+            %p{style: "opacity: .3;"}
+                = comment.created_at
+            .media-text.text-justify 
+            %p{style: "opacity: .6;"}
+                = comment.body
+        / Конец комментария (уровень 1)
