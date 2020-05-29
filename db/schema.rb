@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_145900) do
+ActiveRecord::Schema.define(version: 2020_05_28_083004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,11 @@ ActiveRecord::Schema.define(version: 2020_05_25_145900) do
     t.string "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "author_type"
+    t.bigint "author_id"
+    t.bigint "task_id", default: 0, null: false
+    t.index ["author_type", "author_id"], name: "index_comments_on_author_type_and_author_id"
+    t.index ["task_id"], name: "index_comments_on_task_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -171,6 +176,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_145900) do
   add_foreign_key "comment_likes", "like_comments"
   add_foreign_key "comment_users", "comments"
   add_foreign_key "comment_users", "users"
+  add_foreign_key "comments", "tasks"
   add_foreign_key "companies", "cities"
   add_foreign_key "companies", "districts"
   add_foreign_key "companies", "services"

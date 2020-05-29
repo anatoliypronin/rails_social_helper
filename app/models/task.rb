@@ -5,6 +5,7 @@ class Task < ApplicationRecord
   belongs_to :city
   belongs_to :district
   belongs_to :service
+  has_many :comments, dependent: :delete_all
   has_many_attached :images
   has_many_attached :videos
   validates :images, file_size: { less_than: 1.megabytes }

@@ -26,3 +26,12 @@
 
   %br= @task.description.html_safe
 %script{:src => "https://vjs.zencdn.net/7.7.6/video.js"}
+
+
+= render 'comment'
+= form_for([@task, @task.comments.build]) do|f|
+  %p
+    %br/
+    = f.text_field(:body, {:class => 'form-control'})
+  %p
+    = f.submit('Добавить комментарий', {:class => 'btn btn-success'})
