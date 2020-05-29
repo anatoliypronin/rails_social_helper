@@ -11,7 +11,7 @@ class TasksList extends React.Component {
       { title: 'Город', field: 'city.name' },
       { title: 'Район', field: 'district.name' },
       { title: 'Адрес', field: 'address' },
-      { title: 'Служба', field: 'service.name' }]
+      { title: 'Служба', field: 'services'}]
     }
   }
 
@@ -22,7 +22,7 @@ class TasksList extends React.Component {
   };
     
   componentDidMount() {
-
+    console.log(this.fetchTasks)
     this.fetchTasks()
   };
 
