@@ -62,6 +62,6 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
   private
 
   def task_attrs
-    params.require(:task).permit(:description, :title, :address, :state, :user_id, :city_id, :district_id, :service_id, images: [], videos: [])
+    params.require(:task).permit(:description, :title, :address, :state, :user_id, :city_id, :district_id, images: [], videos: [], service_ids: [])
   end
 end

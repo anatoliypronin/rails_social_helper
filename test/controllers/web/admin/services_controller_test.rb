@@ -49,4 +49,12 @@ class Web::Admin::ServicesControllerTest < ActionDispatch::IntegrationTest
 
     assert_not Service.exists?(@service.id)
   end
+
+  test 'should update task with services' do
+    @task = create :task
+    attrs_service = attributes_for :service
+    attrs_service[:task_ids] = [@task.id]
+    put admin_service_path(@service), params: { service: attrs_service }
+    assert @service.tasks.include?(@task)
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_145900) do
+ActiveRecord::Schema.define(version: 2020_05_28_120354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,16 @@ ActiveRecord::Schema.define(version: 2020_05_25_145900) do
     t.index ["name"], name: "index_service_on_name", unique: true
   end
 
+  create_table "task_services", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_task_services_on_service_id"
+    t.index ["task_id", "service_id"], name: "index_task_services_on_task_id_and_service_id", unique: true
+    t.index ["task_id"], name: "index_task_services_on_task_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "description", null: false
@@ -177,6 +187,8 @@ ActiveRecord::Schema.define(version: 2020_05_25_145900) do
   add_foreign_key "districts", "cities"
   add_foreign_key "like_comment_users", "like_comments"
   add_foreign_key "like_comment_users", "users"
+  add_foreign_key "task_services", "services"
+  add_foreign_key "task_services", "tasks"
   add_foreign_key "tasks", "cities"
   add_foreign_key "tasks", "districts"
   add_foreign_key "tasks", "services"

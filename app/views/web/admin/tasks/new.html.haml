@@ -1,9 +1,9 @@
 = simple_form_for @task, html: { multipart: true } , url: admin_tasks_path do |f|
     = f.input :title
+    = f.association :services, as: :check_boxes
     = f.association :user, collection:  decorate_user, label_method: :full_name, include_blank: true
     = f.association :city, include_blank: true
     = f.association :district, include_blank: true
-    = f.association :service, include_blank: true
     = f.input :description
     = f.input :address
     = f.input :images, as: :file, input_html: { multiple: true }
