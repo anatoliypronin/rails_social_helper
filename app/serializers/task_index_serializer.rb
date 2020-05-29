@@ -3,6 +3,6 @@ class TaskIndexSerializer < ActiveModel::Serializer
 
   belongs_to :city
   belongs_to :district
-  belongs_to :service
+  belongs_to :services
   belongs_to :user
 end

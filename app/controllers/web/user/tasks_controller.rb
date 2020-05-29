@@ -16,6 +16,6 @@ class Web::User::TasksController < Web::User::ApplicationController
   private
 
   def task_attrs
-    params.require(:task).permit(:description, :title, :address, :state, :user_id, :city_id, :district_id, :state, :service_id)
+    params.require(:task).permit(:description, :title, :address, :state, :user_id, :city_id, :district_id, :state, service_ids: [])
   end
 end

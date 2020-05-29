@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :comment do
     body
-    author {create :admin }
-    
+    author { create :admin }
+
     task
   end
 end

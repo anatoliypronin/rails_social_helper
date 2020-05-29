@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class Web::CommentsControllerTest < ActionDispatch::IntegrationTest
-
   test 'shoud post create comment admin' do
     admin = create :admin
     sign_in_as_admin(admin)

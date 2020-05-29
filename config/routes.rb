@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   scope module: :web do
     root to: 'welcome#index'
     resources :tasks, only: %i[show] do
-      resources :comments, only:%i[create]
+      resources :comments, only: %i[create]
     end
     namespace :admin do
       resource :sessions, only: %i[new create destroy]

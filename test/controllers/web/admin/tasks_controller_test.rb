@@ -21,7 +21,6 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
     task_attrs = attributes_for(:task)
     task_attrs[:user_id] = @task.user_id
     task_attrs[:city_id] = @task.city_id
-    task_attrs[:service_id] = @task.service_id
     task_attrs[:district_id] = @task.district_id
 
     post admin_tasks_path, params: { task: task_attrs }
@@ -77,5 +76,13 @@ class Web::Admin::TasksControllerTest < ActionDispatch::IntegrationTest
 
     @task.reload
     assert_equal 'active', @task.state
+  end
+
+  test 'should update task with services' do
+    @service = create :service
+    attrs_task = attributes_for :task
+    attrs_task[:service_ids] = [@service.id]
+    put admin_task_path(@task), params: { task: attrs_task }
+    assert @task.services.include?(@service)
   end
 end
